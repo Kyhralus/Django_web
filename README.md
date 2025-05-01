@@ -25,3 +25,7 @@ python manage.py migrate # 没有编任何app时 ---> 全部初始化
 python manage.py makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令
 python manage.py createsuperuser
 ```
+
+
+# 一些问题
+git的配置需要在本地的git bash中运行
