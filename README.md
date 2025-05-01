@@ -29,4 +29,4 @@ python manage.py createsuperuser
 
 # 一些问题
 git的配置需要在本地的git bash中运行
-测试
+测试2
