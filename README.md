@@ -82,7 +82,7 @@ pip install --upgrade <包名> # 升级包
 pip install --upgrade pip # 升级pip
 ```
 ------------------------------------------
-# 一些问题
+# github
 1. git的配置需要在本地的git bash中运行
 2. contributor的显示要有两个人以上，才会在仓库的右侧边栏显示
 3. pycharm中如果需要指明提交人，需要在commit界面的右下角齿轮处设置自己的名称和邮箱，然后提交即可
