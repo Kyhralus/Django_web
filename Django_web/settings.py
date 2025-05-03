@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent           # 都是对manage.py的相对寻址
-
+# print("BASE_DIT:", BASE_DIR) # 绝对路径：D:\JetBrains\PycharmProjects\Django_web
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -31,29 +31,35 @@ ALLOWED_HOSTS = []              # 规定hosts，给不同的服务器分任务
 # Application definition
 
 INSTALLED_APPS = [                  # 功能模块 --- 用的最多
-    "django.contrib.admin",         # 后台模块 --- 验证用户名
     "django.contrib.auth",          # 保存密钥模块
+    "django.contrib.admin",         # 后台模块 --- 验证用户名
     "django.contrib.contenttypes",  #
     "django.contrib.sessions",      #
     "django.contrib.messages",      #
     "django.contrib.staticfiles",   # 统计数据模块
-    'DjangoWebApps.apps.DjangoWebAppsConfig',
     # ======== 以下是自己添加 ========
-    'DjangoWebApps.dw_cart',
-    'DjangoWebApps.dw_goods',
-    'DjangoWebApps.dw_order',
-    'DjangoWebApps.dw_user',
+    'apps.cart',
+    'apps.goods',
+    'apps.order',
+    'apps.user',
+
+    # 'crispy_forms',   # crispy_forms 是一个常用的 Django 插件，用于美化和简化表单渲染
+    # 'crispy_bootstrap5',  # 将 Django 表单渲染为 Bootstrap 5 风格
+    # 扩展
+     'django_extensions',
+     'tinymce',             #tinymce富文本编辑器
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",      # 用户认证和购物车功能通常依赖会话
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",   # 用户认证和购物车功能通常依赖会话
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 ROOT_URLCONF = "Django_web.urls"            # 最基础路由文件
 
@@ -79,13 +85,22 @@ WSGI_APPLICATION = "Django_web.wsgi.application"            # webservice，用�
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {                                              # 数据库 --- 可以是网络，也可以是本地
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",            # 引擎 --- 可以改mysql
-        "NAME": BASE_DIR / "db.sqlite3",
+# DATABASES = {                                              # 数据库 --- 可以是网络，也可以是本地
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",            # 引擎 --- 可以改mysql
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_web',         # 数据库名称
+        'USER': 'root',
+        'PASSWORD': '123456',     # 数据库密码
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -127,3 +142,35 @@ STATIC_URL = "static/"          # 静态文件的地址       静态文件：图
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"        # 指定默认主键类型的设置 --- 是数据库表中每条记录的唯一标识，通常是一个自增的整数
+
+# STATICFILES_DIRS = [BASE_DIR / "static"] # 静态文件的存放位置: /'static'是相对路径
+
+#####
+# # 购物车会话设置
+# CART_SESSION_ID = 'cart'
+
+# 静态文件配置
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
+
+
+# # Crispy Forms 配置
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+# CRISPY_TEMPLATE_PACK = "bootstrap5"
+#
+# # 登录重定向
+# LOGIN_REDIRECT_URL = 'goods:product_list'
+# LOGIN_URL = 'user:login'
+
+# django认证系统指定的模型类
+AUTH_USER_MODEL = 'user.User'
+
+# 富文本编辑器配置
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 600,
+    'height': 400,
+}
+
