@@ -194,3 +194,6 @@ CACHES = {
 # 使用django-redis 作为 session 储存后端,关闭即可不用redis缓存
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
+
+# 在官网文档中调用login_required方法，设置验证不成功跳转的地址，则需要在项目settings配置文件中配置LOGIN_URL，设置为登录地址
+LOGIN_URL = "http://127.0.0.1:8000/user/login?next=/user/"

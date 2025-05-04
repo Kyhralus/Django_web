@@ -69,8 +69,13 @@ SHOW TABLES; # 查看数据库中的表
 SHOW COLUMNS FROM <数据库名称>; # 查看对应表中的列
 DESCRIBE <对应数据库的表名称>; # 查看表的结构
 SHOW CREATE TABLE <数据库名称> \G; # 查看表的创建语句
-
 select * from <段名> \G; # 查看表中对应段的所有数据
+
+# 常用指令
+use dongdongqiang;
+show tables;
+select * from ddq_user \G;
+# 常用
 ```
 ------------------------------------------
 # conda
@@ -125,5 +130,4 @@ redis-cli # 在cmd中使用
 select <redis数据库编号> # 选择redis数据库
 keys * # 查看所有的key
     
-done
 ```
