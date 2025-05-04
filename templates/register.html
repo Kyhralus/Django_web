@@ -12,13 +12,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
-	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript" src="js/register.js"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/register.js' %}"></script>
 </head>
 <body>
 	<div class="register_con">
 		<div class="l_con fl">
-			<a class="reg_logo"><img src="images/logo02.png"></a>
+			<a class="reg_logo"><img src="{% static 'images/logo02.png' %}"></a>
 			<div class="reg_slogan">咚咚锵  ·  东东枪</div>
 			<div class="reg_banner"></div>
 		</div>
@@ -29,7 +29,8 @@
 				<a href="#">登录</a>
 			</div>
 			<div class="reg_form clearfix">
-				<form method="post" action="/user/register_handle">  <!-- 定义一个 HTML 表单，用于用户输入数据并提交到服务器。注册页面数据是以POST请求方式向服务器发送 -->
+				<form method="post" action="{% url 'user:register' %}">  <!-- 定义一个 HTML 表单，用于用户输入数据并提交到服务器。注册页面数据是以POST请求方式向服务器发送 -->
+                    <!-- 注册优化处理，让显示注册页面和注册数据处理为同一个url地址（/user/register） ，因为显示注册页面为get请求，而注册数据处理为post请求，可以根据请求方式不同来使用同一个url地址-->
 				<ul>   <!-- 定义一个无序列表，用于组织表单中的各个输入项 -->
                     <!-- 表单其他字段和内容 -->
 					<li>   <!-- 定义一个列表项，用于包含表单中的输入字段和标签 -->
@@ -61,7 +62,8 @@
 						<input type="submit" value="注 册" name="">
 					</li>
 				</ul>
-                {% csrf_token %} {# 在django中发送POST请求表单数据，防止跨站攻击需在form标签下加上{% csrf_token %} #}
+                    {% csrf_token %} {# 在django中发送POST请求表单数据，防止跨站攻击需在form标签下加上{% csrf_token %} #}
+                    <span style="color: red">{{ error_msg }}</span>  {# 数据不合法的情况下，提示错误信息 #}
 				</form>
 			</div>
 

@@ -1,8 +1,8 @@
 # coding:utf-8
-from django.urls import path
+from django.urls import path,re_path
 from . import views
 
 urlpatterns = [
-    path(r"^$", views.index, name="index"), # 首页
+    re_path(r"^$", views.index, name="index"), # 首页
 ]
 

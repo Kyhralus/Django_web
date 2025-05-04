@@ -138,7 +138,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [BASE_DIR /'static']
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -154,3 +155,42 @@ TINYMCE_DEFAULT_CONFIG = {
 # django认证系统指定的模型类
 AUTH_USER_MODEL = 'ddq_user.User'
 
+'''
+登录未激活的账号
+这里有一个bug那就是在进行未激活账号登录时一直提示用户名和密码错误
+在post方法中通过打印username和password的值查看输入的用户名和密码没错与当初注册时填写的用户名密码对的上
+查看django认证系统文档，方法时候啥的都没问题
+但是在校验用户名密码时调用的authenticate方法一直返回的是None
+这就很奇怪了，通过网上查资料发现需要在settings配置文件中添加如下配置
+让django认证系统中的create_user方法再保存用户注册数据时，不关联用户表中的is_active字段
+这样再进行登录验证时调用authenticate方法返回错误的None对象
+'''
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
+# ============================ 激活邮件token配置 ============================
+# 发送邮件配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+# 发送邮件的邮箱
+EMAIL_HOST_USER = 'alineyiee@163.com'
+# 在邮箱中设置的客户端授权密码
+# smtp授权码：JHVDHnqrCm5gmv2b
+EMAIL_HOST_PASSWORD = 'JHVDHnqrCm5gmv2b'
+# 收件人看到的发件人
+EMAIL_FROM = 'dongdongqiang<alineyiee@163.com>'
+
+# ============================ 缓存django-redis配置 ============================
+# django缓存配置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/5",         # redis数据库5来执行任务 （厨师）
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+# 使用django-redis 作为 session 储存后端,关闭即可不用redis缓存
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
