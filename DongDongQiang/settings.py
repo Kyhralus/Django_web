@@ -192,5 +192,5 @@ CACHES = {
 }
 
 # 使用django-redis 作为 session 储存后端,关闭即可不用redis缓存
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# SESSION_CACHE_ALIAS = "default"

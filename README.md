@@ -125,5 +125,4 @@ redis-cli # 在cmd中使用
 select <redis数据库编号> # 选择redis数据库
 keys * # 查看所有的key
     
-done
 ```

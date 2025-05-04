@@ -155,6 +155,7 @@ class LoginView(View):
         password = request.POST.get("pwd")
         # 2. 数据校验
         if not all([username, password]):
+            print("error_msg: 数据不完整")
             return render(request, "login.html", {"error_msg": "数据不完整"})
         # 3. 校验用户名和密码
         user = authenticate(request, username=username, password=password)  # 正确返回user对象，不正确返回None
@@ -178,8 +179,10 @@ class LoginView(View):
                 return response
             else:
                 # 用户未激活
+                print("error_msg: 账户未激活")
                 return render(request, "login.html", {"error_msg": "账户未激活"})
         else:
             # 用户名或密码错误
+            print("error_msg: 用户名或密码错误")
             return render(request, "login.html", {"error_msg": "用户名或密码错误"})
         # 4. 登录成功，跳转到主页
