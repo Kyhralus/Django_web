@@ -4,8 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f922b5c8-5456-48d4-b379-6fdaa8448af9" name="Changes" comment="更改版本,旧版本在old分支。&#10;old分支上的由于迁移文件的生成存在问题，导致user的User模型一直无法被引用【未解决】。">
+    <list default="true" id="f922b5c8-5456-48d4-b379-6fdaa8448af9" name="Changes" comment="更改README.md">
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DongDongQiang/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DongDongQiang/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/static/shops/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/templates/shops/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shops/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_goods/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_goods/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_goods/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,18 +54,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Kyhralus"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kyhralus&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Kyhralus/Django_web.git",
-    "accountId": "7e001607-4468-4f9e-b619-67227dd9a563"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Kyhralus/Django_web.git&quot;,
+    &quot;accountId&quot;: &quot;7e001607-4468-4f9e-b619-67227dd9a563&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -58,13 +76,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Django Server.DongDongQiang.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.python manage.py makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令.executor": "Run",
     "Python.settings.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/JetBrains/PycharmProjects/DongDongQiang/apps/ddq_user",
+    "last_opened_file_path": "D:/JetBrains/PycharmProjects/DongDongQiang/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,22 +93,50 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\templates" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps\ddq_user" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps\ddq_order" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps\ddq_goods" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang" />
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\Buyers\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.settings">
+  <component name="RunManager" selected="Python.python manage.py makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令">
+    <configuration name="python manage.py makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DongDongQiang" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="manage.py" />
+      <option name="PARAMETERS" value="makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="settings" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DongDongQiang" />
       <option name="ENV_FILES" value="" />
@@ -118,6 +167,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="DongDongQiang.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -137,6 +187,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.python manage.py makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令" />
         <item itemvalue="Python.settings" />
       </list>
     </recent_temporary>
@@ -157,7 +208,9 @@
       <option name="presentableId" value="Default" />
       <updated>1746258008249</updated>
       <workItem from="1746258009312" duration="3965000" />
-      <workItem from="1746262415332" duration="2339000" />
+      <workItem from="1746262415332" duration="2390000" />
+      <workItem from="1746265888762" duration="113000" />
+      <workItem from="1746322704761" duration="4315000" />
     </task>
     <task id="LOCAL-00001" summary="更改版本">
       <option name="closed" value="true" />
@@ -215,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746264532724</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="更改README.md">
+      <option name="closed" value="true" />
+      <created>1746265011650</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746265011650</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,9 +286,11 @@
     <MESSAGE value="更改版本" />
     <MESSAGE value="更改版本,旧版本在main分支。&#10;main分支上的由于迁移文件的生成存在问题，导致user的User模型一直无法被引用【未解决】。" />
     <MESSAGE value="更改版本,旧版本在old分支。&#10;old分支上的由于迁移文件的生成存在问题，导致user的User模型一直无法被引用【未解决】。" />
-    <option name="LAST_COMMIT_MESSAGE" value="更改版本,旧版本在old分支。&#10;old分支上的由于迁移文件的生成存在问题，导致user的User模型一直无法被引用【未解决】。" />
+    <MESSAGE value="更改README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改README.md" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DongDongQiang$settings.coverage" NAME="settings Coverage Results" MODIFIED="1746260884547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DongDongQiang" />
+    <SUITE FILE_PATH="coverage/DongDongQiang$python_manage_py_makemigrations____Django_.coverage" NAME="python manage.py makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令 Coverage Results" MODIFIED="1746323457792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

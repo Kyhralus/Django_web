@@ -2,13 +2,16 @@
 - python 3.11.7
 - django 5.2
     - django-extensions
-    - tinymce
-    - crispy_forms
-    - crispy-bootstrap5
-    - cffi-1.17.1 
-    - cryptography-44.0.3 
-    - pycparser-2.22
+- tinymce
+- cffi-1.17.1 
+- cryptography-44.0.3 
+- pycparser-2.22
 - Pillow 11.2.1
+
+
+要加？
+- crispy_forms
+- crispy-bootstrap5
 ------------------------------------------
 1. 激活虚拟环境
 ```bash
@@ -28,9 +31,8 @@ pip install django-extensions # 用于看urls映射关系等
 ```bash
 django-admin startproject <项目名称>
 python manage.py runserver # 需要在项目文件下运行
-# 数据库
-python manage.py migrate # 没有编任何app时 ---> 全部初始化
 python manage.py makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令
+python manage.py migrate # 没有编任何app时 ---> 全部初始化
 python manage.py createsuperuser
 ```
 查看url映射
@@ -52,10 +54,14 @@ password: 123456\
 管理员看不到密码
 ## 2. 相关指令
 ```bash
-SHOW DATABASES; # 查看数据库
+create database <数据库名称> charset=utf8; # 创建数据库
+SHOW DATABASES; # 查看数据库列表
 DROP DATABASE <database_name>; # 删除数据库
-
-create database <数据库名称> charset=utf8;
+USE <数据库名称>; # 选择数据库
+SHOW TABLES; # 查看数据库中的表
+SHOW COLUMNS FROM <数据库名称>; # 查看对应表中的列
+DESCRIBE <对应数据库的表名称>; # 查看表的结构
+SHOW CREATE TABLE <数据库名称> \G; # 查看表的创建语句
 ```
 ------------------------------------------
 # conda
