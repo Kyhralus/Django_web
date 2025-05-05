@@ -75,7 +75,6 @@ select * from <段名> \G; # 查看表中对应段的所有数据
 use dongdongqiang;
 show tables;
 select * from ddq_user \G;
-# 常用
 ```
 ------------------------------------------
 # conda
