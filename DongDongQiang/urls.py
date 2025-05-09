@@ -16,10 +16,10 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),    # ，二级路由。指引到admin.site.urls文件的url
     path('user/', include(('ddq_user.urls', 'user'))),  # 用户模块
     path('cart/', include(('ddq_cart.urls', 'cart'))),  # 购物车模块
     path('order/', include(('ddq_order.urls', 'order'))),  # 订单模块

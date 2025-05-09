@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东风格页面</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/slide.js"></script>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="jd-top-nav">
+        <div class="jd-top-nav-inner">
+            <div class="jd-top-nav-left">
+                <span>你好，请登录</span>
+                <a href="#">免费注册</a>
+                <span class="divider">|</span>
+                <a href="#">我的订单</a>
+            </div>
+            <div class="jd-top-nav-right">
+                <a href="#">我的京东</a>
+                <span class="divider">|</span>
+                <a href="#">京东会员</a>
+                <span class="divider">|</span>
+                <a href="#">企业采购</a>
+                <span class="divider">|</span>
+                <a href="#">客户服务</a>
+                <span class="divider">|</span>
+                <a href="#">网站导航</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="jd-search-bar">
+        <a href="#" class="jd-logo"><img src="images/jd-logo.png" alt="京东logo"></a>
+        <div class="jd-search-con">
+            <input type="text" class="jd-input-text" placeholder="搜索商品">
+            <input type="button" class="jd-input-btn" value="搜索">
+        </div>
+        <div class="jd-guest-cart">
+            <a href="#" class="jd-cart-name">我的购物车</a>
+            <div class="jd-goods-count" id="show_count">1</div>
+        </div>
+    </div>
+
+    <!-- 商品分类导航栏 -->
+    <div class="jd-navbar-con">
+        <div class="jd-navbar">
+            <h1 class="jd-all-categories fl">全部商品分类</h1>
+            <ul class="jd-navlist fl">
+                <li><a href="#">首页</a></li>
+                <li class="jd-interval">|</li>
+                <li><a href="#">家用电器</a></li>
+                <li class="jd-interval">|</li>
+                <li><a href="#">手机数码</a></li>
+                <!-- 更多分类链接可在此添加 -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 中间内容区域 -->
+    <div class="jd-center-con clearfix">
+        <!-- 左侧商品分类列表 -->
+        <ul class="jd-subnav fl">
+            <li><a href="#" class="jd-category-link">新鲜水果</a></li>
+            <li><a href="#" class="jd-category-link">海鲜水产</a></li>
+            <li><a href="#" class="jd-category-link">猪牛羊肉</a></li>
+            <li><a href="#" class="jd-category-link">禽类蛋品</a></li>
+            <li><a href="#" class="jd-category-link">新鲜蔬菜</a></li>
+            <li><a href="#" class="jd-category-link">速冻食品</a></li>
+        </ul>
+        <!-- 幻灯片区域 -->
+        <div class="jd-slide fl">
+            <ul class="jd-slide-pics">
+                <!-- 假设此处的图片地址为示例地址，实际应替换 -->
+                <li><a href="#"><img src="images/slide1.jpg" alt="幻灯片"></a></li>
+                <li><a href="#"><img src="images/slide2.jpg" alt="幻灯片"></a></li>
+            </ul>
+            <div class="jd-prev"></div>
+            <div class="jd-next"></div>
+            <ul class="jd-points"></ul>
+        </div>
+        <!-- 广告区域 -->
+        <div class="jd-adv fl">
+            <a href="#"><img src="images/adv1.jpg" alt="广告"></a>
+            <a href="#"><img src="images/adv2.jpg" alt="广告"></a>
+        </div>
+    </div>
+
+    <!-- 商品列表区域 -->
+    <div class="jd-list-model">
+        <div class="jd-list-title clearfix">
+            <h3 class="jd-fl" id="model01">新鲜水果</h3>
+            <div class="jd-subtitle jd-fl">
+                <span>|</span>
+                <a href="#">鲜芒</a>
+                <a href="#">加州提子</a>
+                <a href="#">亚马逊牛油果</a>
+            </div>
+            <a href="#" class="jd-goods-more jd-fr" id="fruit_more">查看更多 ></a>
+        </div>
+        <div class="jd-goods-con clearfix">
+            <div class="jd-goods-banner jd-fl"><img src="images/banner01.jpg"></div>
+            <ul class="jd-goods-list jd-fl">
+                <li>
+                    <h4><a href="#">草莓</a></h4>
+                    <a href="#"><img src="images/goods/goods003.jpg"></a>
+                    <div class="jd-prize">¥ 30.00</div>
+                </li>
+                <li>
+                    <h4><a href="#">葡萄</a></h4>
+                    <a href="#"><img src="images/goods/goods002.jpg"></a>
+                    <div class="jd-prize">¥ 5.50</div>
+                </li>
+                <li>
+                    <h4><a href="#">柠檬</a></h4>
+                    <a href="#"><img src="images/goods/goods001.jpg"></a>
+                    <div class="jd-prize">¥ 3.90</div>
+                </li>
+                <li>
+                    <h4><a href="#">奇异果</a></h4>
+                    <a href="#"><img src="images/goods/goods012.jpg"></a>
+                    <div class="jd-prize">¥ 25.80</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 其他商品分类列表，与新鲜水果类似，可根据实际情况调整 -->
+    <div class="jd-list-model">
+        <div class="jd-list-title clearfix">
+            <h3 class="jd-fl" id="model02">海鲜水产</h3>
+            <div class="jd-subtitle jd-fl">
+                <span>|</span>
+                <a href="#">河虾</a>
+                <a href="#">扇贝</a>
+            </div>
+            <a href="#" class="jd-goods-more jd-fr">查看更多 ></a>
+        </div>
+        <div class="jd-goods-con clearfix">
+            <div class="jd-goods-banner jd-fl"><img src="images/banner02.jpg"></div>
+            <ul class="jd-goods-list jd-fl">
+                <li>
+                    <h4><a href="#">青岛野生海捕大青虾</a></h4>
+                    <a href="#"><img src="images/goods/goods018.jpg"></a>
+                    <div class="jd-prize">¥ 48.00</div>
+                </li>
+                <li>
+                    <h4><a href="#">扇贝</a></h4>
+                    <a href="#"><img src="images/goods/goods019.jpg"></a>
+                    <div class="jd-prize">¥ 46.00</div>
+                </li>
+                <li>
+                    <h4><a href="#">冷冻秋刀鱼</a></h4>
+                    <a href="#"><img src="images/goods/goods020.jpg"></a>
+                    <div class="jd-prize">¥ 19.00</div>
+                </li>
+                <li>
+                    <h4><a href="#">基围虾</a></h4>
+                    <a href="#"><img src="images/goods/goods021.jpg"></a>
+                    <div class="jd-prize">¥ 25.00</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="jd-footer">
+        <div class="jd-foot-link">
+            <a href="#">关于我们</a>
+            <span>|</span>
+            <a href="#">联系我们</a>
+            <span>|</span>
+            <a href="#">招聘人才</a>
+            <span>|</span>
+            <a href="#">友情链接</a>
+        </div>
+        <p>Copyright © 2024 京东版权所有</p>
+        <p>京ICP证××××××号</p>
+    </div>
+
+    <script type="text/javascript" src="js/slideshow.js"></script>
+    <script type="text/javascript">
+        // 假设BCSlideshow为幻灯片切换函数，实际需确保该函数存在且正确
+        BCSlideshow('focuspic');
+        var oFruit = document.getElementById('fruit_more');
+        var oShownum = document.getElementById('show_count');
+
+        var hasorder = localStorage.getItem('order_finish');
+
+        if(hasorder)
+        {
+            oShownum.innerHTML = '2';
+        }
+
+        oFruit.onclick = function(){
+            window.location.href = 'list.html';
+        }
+    </script>
+</body>
+</html>

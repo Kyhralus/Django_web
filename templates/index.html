@@ -19,334 +19,561 @@
 {#<body>#}
 {% extends 'base.html' %}
 {% load static %}   {# 导入静态文件 #}
-{% block title %}天天生鲜-首页{% endblock title %}
+{% block title %}咚咚锵-欢迎您！{% endblock title %}   {# 更改浏览器地址栏的信息 #}
 {% block topfiles %}
 	<script type="text/javascript" src= "js/jquery-1.12.4.min.js "></script>
 	<script type="text/javascript" src= "js/jquery-ui.min.js "></script>
 	<script type="text/javascript" src= "js/slide.js "></script>
 {% endblock topfiles %}
-{% block body %}
-{#	<div class="header_con">#}
-{#		<div class="header">#}
-{#			<div class="welcome fl">欢迎来到天天生鲜!</div>#}
-{#			<div class="fr">#}
-{#				<div class="login_info fl">#}
-{#					欢迎您：<em>张 山</em>#}
-{#				</div>#}
-{#				<div class="login_btn fl">#}
-{#					<a href="login.html">登录</a>#}
-{#					<span>|</span>#}
-{#					<a href="register.html">注册</a>#}
-{#				</div>#}
-{#				<div class="user_link fl">#}
-{#					<span>|</span>#}
-{#                    <a href='user_center_info'>用户中心</a>#}
-{#                    <span>|</span>#}
-{#                    <a href='cart'>我的购物车</a>#}
-{#                    <span>|</span>#}
-{#                    <a href='user_center_order'>我的订单</a>#}
-{#				</div>#}
-{#			</div>#}
+{% block body %}    <div class="fs">
+        <div class="jd_container jd_fs_container grid_c1 fs_inner">
+            <!-- 左侧导航栏 -->
+            <div class="fs_col1">
+              <div id="J_cate" class="cate J_cate fs_mod cate18" role="navigation" aria-label="左侧导航">
+                <ul class="JS_navCtn cate_menu">
+                  <li class="split-category">
+                    <a href="/category/mobile/phones" class="split-item">手机</a>
+                    <span class="divider">/</span>
+                    <a href="/category/mobile/operators" class="split-item">运营商</a>
+                    <span class="divider">/</span>
+                    <a href="/category/mobile/digital" class="split-item">数码</a>
+                  </li>
+                 <li class="split-category">
+                      <a href="#" class="split-item">电脑</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">办公</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">文具</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">家居</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">家具</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">厨具</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">男装</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">女装</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">童装</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">美妆</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">个护</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">宠物</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">鞋靴</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">箱包</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">珠宝</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">运动</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">健身</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">户外</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">母婴</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">玩具</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">早教</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">食品</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">酒类</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">生鲜</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">图书</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">文娱</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">教育</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">家装</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">建材</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">五金</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">医药</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">保健</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">护理</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">游戏</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">电玩</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">周边</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">农资</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">绿植</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">园艺</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">汽车</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">二手车</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">车载电器</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">摄影器材</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">镜头</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">三脚架</a>
+                    </li>
+                    <li class="split-category">
+                      <a href="#" class="split-item">乐器</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">音响</a>
+                      <span class="divider">/</span>
+                      <a href="#" class="split-item">录音设备</a>
+                    </li>
+                </ul>
+                <!-- 弹出分类 -->
+                <div class="cate_pop">
+                  <div class="cate_part">
+                    <div class="cate_part_col1">
+                      <div class="cate_detail_item">
+                        <div class="cate_detail_tit">手机通讯</div>
+                        <div class="cate_detail_con">
+                          <a href="#" class="cate_detail_con_lk">手机</a>
+                          <a href="#" class="cate_detail_con_lk">游戏手机</a>
+                          <a href="#" class="cate_detail_con_lk">对讲机</a>
+                          <a href="#" class="cate_detail_con_lk">手机配件</a>
+                        </div>
+                      </div>
+                      <div class="cate_detail_item">
+                        <div class="cate_detail_tit">运营商</div>
+                        <div class="cate_detail_con">
+                          <a href="#" class="cate_detail_con_lk">合约机</a>
+                          <a href="#" class="cate_detail_con_lk">办套餐</a>
+                          <a href="#" class="cate_detail_con_lk">充话费</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cate_part_col2">
+                      <a href="#" class="cate_brand_lk"></a>
+                      <a href="#" class="cate_brand_lk"></a>
+                      <a href="#" class="cate_promotion_lk"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 中间内容区域 -->
+            <div class="fs_col2">
+                <div class="nav_container fs_mod">
+                    <!-- 顶部导航标签 -->
+                    <div class="navitems" role="navigation">
+                        <span class="hot-tag">HOT</span>
+                        <a href="#">出口转内销</a>
+                        <a href="#">早十好价</a>
+                        <a href="#">新品</a>
+                        <a href="#">排行榜</a>
+                        <a href="#">咚咚锵外卖</a>
+                        <a href="#">咚咚锵企业购</a>
+                    </div>
+                    <!-- 中间广告及推荐模块 -->
+                    <div class="core_mod_container">
+                        <!-- 广告图 -->
+{#                        <div id="J_focus" class="focus">#}
+{#                            <img src="{% static 'images/logo.png' %}" alt="广告图" width="700" height="300">#}
+{#                        </div>#}
+                        <!-- 补贴及秒杀模块 -->
+                        <div id="J_biz_mod" class="biz_mod_container">
+                            <div class="subsidy">
+                                <h3>国家补贴 × 百亿补贴</h3>
+                                <div class="product">
+                                    <img src="{% static 'images/logo.png' %}" alt="商品1" width="100" height="100">
+                                    <p>已补10元</p>
+                                    <p>¥39.9</p>
+                                </div>
+                                <div class="product">
+                                    <img src="{% static 'images/logo.png' %}" alt="商品2" width="100" height="100">
+                                    <p>已补31.33元</p>
+                                    <p>¥125.89</p>
+                                </div>
+                            </div>
+                            <div class="seckill">
+                                <h3>京东秒杀</h3>
+                                <span>1元抢大牌美妆</span>
+                                <div class="product">
+                                    <img src="{% static 'images/logo.png' %}" alt="商品3" width="100" height="100">
+                                    <p>¥143.64</p>
+                                </div>
+                                <div class="product">
+                                    <img src="{% static 'images/logo.png' %}" alt="商品4" width="100" height="100">
+                                    <p>¥108</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 其他推荐模块 -->
+                        <div class="service_container fs_mod">
+                            <div class="module">
+                                <h3>9.9包邮</h3>
+                                <img src="{% static 'images/promotions/9.9.jpg' %}" alt="商品5" width="180" height="110">
+                                <p>¥5.9</p>
+                            </div>
+                            <div class="module">
+                                <h3>京东直播</h3>
+                                <img src="{% static 'images/promotions/live.png' %}" alt="直播图" width="180" height="110">
+                                <p>主播精选</p>
+                            </div>
+                            <div class="module">
+                                <h3>百宝箱</h3>
+                                <div class="icon">天天领好礼</div>
+                                <div class="icon">京豆</div>
+                                <div class="icon">充值中心</div>
+                                <div class="icon">国家补贴</div>
+                                <div class="icon">企业计划购</div>
+                                <div class="icon">酒店</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧用户及快捷入口区域 -->
+            <div id="J_fs_col3" class="fs_col3">
+                <div id="J_user" class="J_user user">
+                    <img src="{% static 'images/icons/head.png' %}" alt="头像" class="avatar">
+                    <span class="username">jd_byy6103imsfcy5</span>
+                    <div class="account-ops">
+                        <a href="#">切换账号</a> | <a href="#">退出</a>
+                    </div>
+                    <div class="user-records">
+                        <div class="record-item">
+                            <img src="{% static 'images/icons/history.png' %}" alt="浏览记录图标">
+                            <p>浏览记录</p>
+                        </div>
+                        <div class="record-item">
+                            <img src="{% static 'images/icons/collection.png' %}" alt="收藏图标">
+                            <p>商品收藏</p>
+                        </div>
+                        <div class="record-item">
+                            <img src="{% static 'images/icons/shop.png' %}" alt="关注图标">
+                            <p>店铺关注</p>
+                        </div>
+                    </div>
+                    <div class="user-orders">
+                        <div class="order-item">
+                            <span>0</span>
+                            <p>待付款</p>
+                        </div>
+                        <div class="order-item">
+                            <span>0</span>
+                            <p>待收货</p>
+                        </div>
+                        <div class="order-item">
+                            <span>18</span>
+                            <p>待评价</p>
+                        </div>
+                        <div class="order-item">
+                            <span>0</span>
+                            <p>退换售后</p>
+                        </div>
+                    </div>
+                    <div class="order-status">
+                        <img src="{% static 'images/icons/order-status.png' %}" alt="订单状态图标" width="180" height="50" style="padding-bottom: 12px;">
+                        <p>您的订单已签收，如有疑...</p>
+                    </div>
+                    <div class="vip-promotion">
+                        <div class="vip-item">
+                            <h3>PLUS会员</h3>
+                            <p>权益升级</p>
+                            <button>立即开通</button>
+                        </div>
+                        <div class="vip-item">
+                            <h3>企业会员</h3>
+                            <p>采购补贴3200元</p>
+                            <button>立即开通</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# 商品界面  #}
+    <!-- 商品卡片示例，可根据实际数据循环生成多个 -->
+    <ul class="product-container">
+        <li class="product-item">
+            <a class="product-lk" href="#" target="_blank" title="【官方旗舰店】星火英语考研英语词汇单词书2026考研词汇巧记...">
+                <div class="product-img">
+                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品1" style="height: 240px; width: 240px;">
+                </div>
+                <div class="product-info">
+                    <p class="product-info-name">
+                        <span class="product-info-name-tags"></span>
+                        【官方旗舰店】星火英语考研英语词汇单词书2026考研词汇巧记...
+                    </p>
+                    <div class="product-tail-tags"></div>
+                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">
+                        <div class="mod_price">
+                            <i>¥</i>
+                            <span class="product-info-price-txt">209.80</span>
+                        </div>
+                        <a class="product-info-add_cart" id="product-add-cart-id-1" target="_blank" href="javascript:void(0)"></a>
+                        <span class="product-extra-price-title">到手价</span>
+                        <span class="product-extra-price">
+                            <span title="original-price" class="product-extra-price-txt"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="product-item-hover">
+                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>
+                </div>
+                <div class="hover-border"></div>
+            </a>
+        </li>
+        <li class="product-item">
+            <a class="product-lk" href="#" target="_blank" title="芙清FulQun芙清 医用促愈功能性敷料凝胶抗菌皮炎痘印痤疮保湿...">
+                <div class="product-img">
+                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品2" style="height: 240px; width: 240px;">
+                </div>
+                <div class="product-info">
+                    <p class="product-info-name">
+                        <span class="product-info-name-tags"></span>
+                        芙清FulQun芙清 医用促愈功能性敷料凝胶抗菌皮炎痘印痤疮保湿...
+                    </p>
+                    <div class="product-tail-tags"></div>
+                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">
+                        <div class="mod_price">
+                            <i>¥</i>
+                            <span class="product-info-price-txt">458.00</span>
+                        </div>
+                        <a class="product-info-add_cart" id="product-add-cart-id-2" target="_blank" href="javascript:void(0)"></a>
+                        <span class="product-extra-price-title">到手价</span>
+                        <span class="product-extra-price">
+                            <span title="original-price" class="product-extra-price-txt"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="product-item-hover">
+                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>
+                </div>
+                <div class="hover-border"></div>
+            </a>
+        </li>
+        <li class="product-item">
+            <a class="product-lk" href="#" target="_blank" title="Herschel加拿大赫行【黑标系列】Novel™旅行包手提健身...">
+                <div class="product-img">
+                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品3" style="height: 240px; width: 240px;">
+                </div>
+                <div class="product-info">
+                    <p class="product-info-name">
+                        <span class="product-info-name-tags"></span>
+                        Herschel加拿大赫行【黑标系列】Novel™旅行包手提健身...
+                    </p>
+                    <div class="product-tail-tags"></div>
+                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">
+                        <div class="mod_price">
+                            <i>¥</i>
+                            <span class="product-info-price-txt">39.90</span>
+                        </div>
+                        <a class="product-info-add_cart" id="product-add-cart-id-3" target="_blank" href="javascript:void(0)"></a>
+                        <span class="product-extra-price-title">销量300万+</span>
+                        <span class="product-extra-price">
+                            <span title="original-price" class="product-extra-price-txt"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="product-item-hover">
+                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>
+                </div>
+                <div class="hover-border"></div>
+            </a>
+        </li>
+        <li class="product-item">
+            <a class="product-lk" href="#" target="_blank" title="颐莲张凌赫代言玻尿酸补水喷雾300ml*2瓶保湿爽肤水E">
+                <div class="product-img">
+                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品4" style="height: 240px; width: 240px;">
+                </div>
+                <div class="product-info">
+                    <p class="product-info-name">
+                        <span class="product-info-name-tags"></span>
+                        颐莲张凌赫代言玻尿酸补水喷雾300ml*2瓶保湿爽肤水E
+                    </p>
+                    <div class="product-tail-tags"></div>
+                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">
+                        <div class="mod_price">
+                            <i>¥</i>
+                            <span class="product-info-price-txt">343.44</span>
+                        </div>
+                        <a class="product-info-add_cart" id="product-add-cart-id-4" target="_blank" href="javascript:void(0)"></a>
+                        <span class="product-extra-price-title">到手价</span>
+                        <span class="product-extra-price">
+                            <span title="636.00" class="product-extra-price-txt"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="product-item-hover">
+                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>
+                </div>
+                <div class="hover-border"></div>
+            </a>
+        </li>
+        <li class="product-item">
+            <a class="product-lk" href="#" target="_blank" title="【自营】1号会员店玻尿酸面膜补水保湿润肤透明质酸钠提亮肤色男...">
+                <div class="product-img">
+                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品5" style="height: 240px; width: 240px;">
+                </div>
+                <div class="product-info">
+                    <p class="product-info-name">
+                        <span class="product-info-name-tags"></span>
+                        【自营】1号会员店玻尿酸面膜补水保湿润肤透明质酸钠提亮肤色男...
+                    </p>
+                    <div class="product-tail-tags"></div>
+                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">
+                        <div class="mod_price">
+                            <i>¥</i>
+                            <span class="product-info-price-txt">69.00</span>
+                        </div>
+                        <a class="product-info-add_cart" id="product-add-cart-id-5" target="_blank" href="javascript:void(0)"></a>
+                        <span class="product-extra-price-title">到手价</span>
+                        <span class="product-extra-price">
+                            <span title="original-price" class="product-extra-price-txt"></span>
+                        </span>
+                    </div>
+                    <p class="product-sales">销量80万+</p>
+                </div>
+                <div class="product-item-hover">
+                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>
+                </div>
+                <div class="hover-border"></div>
+            </a>
+        </li>
+{#    第二列#}
+    <li class="product-item">
+        <a class="product-lk" href="#" target="_blank" title="Apple iPad 2022款 10.9英寸 平板电脑">
+            <div class="product-img">
+                <img src="{% static 'images/goods/goods006.jpg' %}" alt="商品6" style="height: 240px; width: 240px;">
+            </div>
+            <div class="product-info">
+                <p class="product-info-name">Apple iPad 2022款 10.9英寸 平板电脑</p>
+                <div class="product-info-price">
+                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">3199.00</span></div>
+                    <a class="product-info-add_cart" href="javascript:void(0)"></a>
+                    <span class="product-extra-price-title">优惠价</span>
+                </div>
+            </div>
+            <div class="product-item-hover">
+                <div class="product-item-delete" title="不喜欢"></div>
+            </div>
+            <div class="hover-border"></div>
+        </a>
+    </li>
+    <li class="product-item">
+        <a class="product-lk" href="#" target="_blank" title="戴尔DELL 灵越14轻薄笔记本电脑">
+            <div class="product-img">
+                <img src="{% static 'images/goods/goods007.jpg' %}" alt="商品7" style="height: 240px; width: 240px;">
+            </div>
+            <div class="product-info">
+                <p class="product-info-name">戴尔DELL 灵越14轻薄笔记本电脑</p>
+                <div class="product-info-price">
+                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">4399.00</span></div>
+                    <a class="product-info-add_cart" href="javascript:void(0)"></a>
+                    <span class="product-extra-price-title">直降500</span>
+                </div>
+            </div>
+            <div class="product-item-hover">
+                <div class="product-item-delete" title="不喜欢"></div>
+            </div>
+            <div class="hover-border"></div>
+        </a>
+    </li>
+    <li class="product-item">
+        <a class="product-lk" href="#" target="_blank" title="NIKE耐克 Air Max男运动鞋">
+            <div class="product-img">
+                <img src="{% static 'images/goods/goods008.jpg' %}" alt="商品8" style="height: 240px; width: 240px;">
+            </div>
+            <div class="product-info">
+                <p class="product-info-name">NIKE耐克 Air Max男运动鞋</p>
+                <div class="product-info-price">
+                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">759.00</span></div>
+                    <a class="product-info-add_cart" href="javascript:void(0)"></a>
+                    <span class="product-extra-price-title">限时抢购</span>
+                </div>
+            </div>
+            <div class="product-item-hover">
+                <div class="product-item-delete" title="不喜欢"></div>
+            </div>
+            <div class="hover-border"></div>
+        </a>
+    </li>
+    <li class="product-item">
+        <a class="product-lk" href="#" target="_blank" title="百草味 坚果零食大礼包 节日送礼">
+            <div class="product-img">
+                <img src="{% static 'images/goods/goods009.jpg' %}" alt="商品9" style="height: 240px; width: 240px;">
+            </div>
+            <div class="product-info">
+                <p class="product-info-name">百草味 坚果零食大礼包 节日送礼</p>
+                <div class="product-info-price">
+                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">129.90</span></div>
+                    <a class="product-info-add_cart" href="javascript:void(0)"></a>
+                    <span class="product-extra-price-title">热销推荐</span>
+                </div>
+            </div>
+            <div class="product-item-hover">
+                <div class="product-item-delete" title="不喜欢"></div>
+            </div>
+            <div class="hover-border"></div>
+        </a>
+    </li>
+    <li class="product-item">
+        <a class="product-lk" href="#" target="_blank" title="飞利浦电动牙刷 成人智能洁齿">
+            <div class="product-img">
+                <img src="{% static 'images/goods/goods010.jpg' %}" alt="商品10" style="height: 240px; width: 240px;">
+            </div>
+            <div class="product-info">
+                <p class="product-info-name">飞利浦电动牙刷 成人智能洁齿</p>
+                <div class="product-info-price">
+                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">239.00</span></div>
+                    <a class="product-info-add_cart" href="javascript:void(0)"></a>
+                    <span class="product-extra-price-title">赠刷头</span>
+                </div>
+            </div>
+            <div class="product-item-hover">
+                <div class="product-item-delete" title="不喜欢"></div>
+            </div>
+            <div class="hover-border"></div>
+        </a>
+    </li>
+
+    </ul>
+{#	<div class="footer">#}
+{#		<div class="foot_link">#}
+{#			<a href="#">关于我们</a>#}
+{#			<span>|</span>#}
+{#			<a href="#">联系我们</a>#}
+{#			<span>|</span>#}
+{#			<a href="#">招聘人才</a>#}
+{#			<span>|</span>#}
+{#			<a href="#">友情链接</a>#}
 {#		</div>#}
+{#		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>#}
+{#		<p>电话：010-****888    京ICP备*******8号</p>#}
 {#	</div>#}
-{##}
-{#	<div class="search_bar clearfix">#}
-{#		<a href="index.html" class="logo fl"><img src= "mages/logo.png' %}i"></a>#}
-{#		<div class="search_con fl">#}
-{#			<input type="text" class="input_text fl" name="" placeholder="搜索商品">#}
-{#			<input type="button" class="input_btn fr" name="" value="搜索">#}
-{#		</div>#}
-{#		<div class="guest_cart fr">#}
-{#			<a href="#" class="cart_name fl">我的购物车</a>#}
-{#			<div class="goods_count fl" id="show_count">1</div>#}
-{#		</div>#}
-{#	</div>#}
-
-	<div class="navbar_con">
-		<div class="navbar">
-			<h1 class="fl">全部商品分类</h1>
-			<ul class="navlist fl">
-				<li><a href="">首页</a></li>
-				<li class="interval">|</li>
-				<li><a href="">手机生鲜</a></li>
-				<li class="interval">|</li>
-				<li><a href="">抽奖</a></li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="center_con clearfix">
-		<ul class="subnav fl">
-			<li><a href="#model01" class="fruit">新鲜水果</a></li>
-			<li><a href="#model02" class="seafood">海鲜水产</a></li>
-			<li><a href="#model03" class="meet">猪牛羊肉</a></li>
-			<li><a href="#model04" class="egg">禽类蛋品</a></li>
-			<li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
-			<li><a href="#model06" class="ice">速冻食品</a></li>
-		</ul>
-		<div class="slide fl">
-			<ul class="slide_pics">
-				<li><img src= "images/slide.jpg " alt="幻灯片"></li>
-				<li><img src= "images/slide02.jpg " alt="幻灯片"></li>
-				<li><img src= "images/slide03.jpg " alt="幻灯片"></li>
-				<li><img src= "images/slide04.jpg " alt="幻灯片"></li>
-			</ul>
-			<div class="prev"></div>
-			<div class="next"></div>
-			<ul class="points"></ul>
-		</div>
-		<div class="adv fl">
-			<a href="#"><img src= "images/adv01.jpg "></a>
-			<a href="#"><img src= "images/adv02.jpg "></a>
-		</div>
-	</div>
-
-	<div class="list_model">
-		<div class="list_title clearfix">
-			<h3 class="fl" id="model01">新鲜水果</h3>
-			<div class="subtitle fl">
-				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
-			</div>
-			<a href="#" class="goods_more fr" id="fruit_more">查看更多 ></a>
-		</div>
-
-		<div class="goods_con clearfix">
-			<div class="goods_banner fl"><img src= "images/banner01.jpg "></div>
-			<ul class="goods_list fl">
-				<li>
-					<h4><a href="#">草莓</a></h4>
-					<a href="#"><img src= "images/goods/goods003.jpg "></a>
-					<div class="prize">¥ 30.00</div>
-				</li>
-				<li>
-					<h4><a href="#">葡萄</a></h4>
-					<a href="#"><img src= "images/goods/goods002.jpg "></a>
-					<div class="prize">¥ 5.50</div>
-				</li>
-				<li>
-					<h4><a href="#">柠檬</a></h4>
-					<a href="#"><img src= "images/goods/goods001.jpg "></a>
-					<div class="prize">¥ 3.90</div>
-				</li>
-				<li>
-					<h4><a href="#">奇异果</a></h4>
-					<a href="#"><img src= "images/goods/goods012.jpg "></a>
-					<div class="prize">¥ 25.80</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="list_model">
-		<div class="list_title clearfix">
-			<h3 class="fl" id="model02">海鲜水产</h3>
-			<div class="subtitle fl">
-				<span>|</span>
-				<a href="#">河虾</a>
-				<a href="#">扇贝</a>
-			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
-		</div>
-
-		<div class="goods_con clearfix">
-			<div class="goods_banner fl"><img src= "'images/banner02.jpg'"></div>
-			<ul class="goods_list fl">
-				<li>
-					<h4><a href="#">青岛野生海捕大青虾</a></h4>
-					<a href="#"><img src= "'images/goods/goods018.jpg'"></a>
-					<div class="prize">¥ 48.00</div>
-				</li>
-				<li>
-					<h4><a href="#">扇贝</a></h4>
-					<a href="#"><img src= "images/goods/goods019.jpg"></a>
-					<div class="prize">¥ 46.00</div>
-				</li>
-				<li>
-					<h4><a href="#">冷冻秋刀鱼</a></h4>
-					<a href="#"><img src= "images/goods/goods020.jpg"></a>
-					<div class="prize">¥ 19.00</div>
-				</li>
-				<li>
-					<h4><a href="#">基围虾</a></h4>
-					<a href="#"><img src= "images/goods/goods021.jpg"></a>
-					<div class="prize">¥ 25.00</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="list_model">
-		<div class="list_title clearfix">
-			<h3 class="fl" id="model03">猪牛羊肉</h3>
-			<div class="subtitle fl">
-				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
-			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
-		</div>
-
-		<div class="goods_con clearfix">
-			<div class="goods_banner fl"><img src= "images/banner03.jpg"></div>
-			<ul class="goods_list fl">
-				<li>
-					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="list_model">
-		<div class="list_title clearfix">
-			<h3 class="fl" id="model04">禽类蛋品</h3>
-			<div class="subtitle fl">
-				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
-			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
-		</div>
-
-		<div class="goods_con clearfix">
-			<div class="goods_banner fl"><img src= "images/banner04.jpg"></div>
-			<ul class="goods_list fl">
-				<li>
-					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="list_model">
-		<div class="list_title clearfix">
-			<h3 class="fl" id="model05">新鲜蔬菜</h3>
-			<div class="subtitle fl">
-				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
-			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
-		</div>
-
-		<div class="goods_con clearfix">
-			<div class="goods_banner fl"><img src= "images/banner05.jpg"></div>
-			<ul class="goods_list fl">
-				<li>
-					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="list_model">
-		<div class="list_title clearfix">
-			<h3 class="fl" id="model06">速冻食品</h3>
-			<div class="subtitle fl">
-				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
-			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
-		</div>
-
-		<div class="goods_con clearfix">
-			<div class="goods_banner fl"><img src= "images/banner06.jpg"></div>
-			<ul class="goods_list fl">
-				<li>
-					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src= "images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="footer">
-		<div class="foot_link">
-			<a href="#">关于我们</a>
-			<span>|</span>
-			<a href="#">联系我们</a>
-			<span>|</span>
-			<a href="#">招聘人才</a>
-			<span>|</span>
-			<a href="#">友情链接</a>
-		</div>
-		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
-		<p>电话：010-****888    京ICP备*******8号</p>
-	</div>
 	<script type="text/javascript" src= "js/slideshow.js"></script>
 	<script type="text/javascript">
 		BCSlideshow('focuspic');
@@ -364,6 +591,31 @@
 			window.location.href = 'list.html';
 		}
 	</script>
+    <script>
+      // 左侧导航栏弹出菜单控制
+      document.addEventListener('DOMContentLoaded', function () {
+        const cate = document.getElementById('J_cate');
+        const catePop = cate.querySelector('.cate_pop');
+
+        cate.addEventListener('mouseenter', () => {
+          catePop.style.display = 'block';
+        });
+
+        cate.addEventListener('mouseleave', () => {
+          catePop.style.display = 'none';
+        });
+      });
+    </script>
+    <script>
+    // 商品卡片，可以在这里添加一些交互增强的JavaScript代码，例如点击事件等
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.addEventListener('click', function () {
+            // 这里可以添加点击卡片后的逻辑，例如跳转到商品详情页
+            console.log('商品卡片被点击');
+        });
+    });
+</script>
 {% endblock body %}
 {#</body>#}
 {#</html>#}

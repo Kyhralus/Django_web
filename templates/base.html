@@ -6,8 +6,9 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	{# 网页标题内容块 #}
 	<title>{% block title %}{% endblock title %}</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+
 	{# 网页顶部引入文件块 #}
 	{% block topfiles %}{% endblock topfiles %}
 </head>
@@ -16,8 +17,8 @@
 {% block header_con %}
 	<div class="header_con">
 		<div class="header">
-			<div class="welcome fl">欢迎来到天天生鲜!</div>
-			<div class="fr">
+			<div class="welcome fl">欢迎来到咚咚锵!</div> {# fl指明左对齐，并不是类名 #}
+			<div class="fr">   {# float right 的缩写，用于将该元素设置为右浮动  #}
 {#                Django框架默认会给前端模板文件传递request.user对象#}
 {#                如果用户是登录状态访问页面会返回User类的对象user#}
 {#                如果未登录则返回AnonymousUser实力对象，当给前端模板文件返回的是user对象（已登录）#}
@@ -29,10 +30,10 @@
 {#                则需要在有class=‘header_con’模块的模板文件中一一进行判断#}
 {#                在此体现出重复内容模板继承的重要性#}
 				{% if user.is_authenticated %}
-				<div class="login_btn fl">
+				<div class="login_btn fl">  {# 右对齐的header容器中左对齐,以最后的对齐类为其左右对齐类 #}
 					欢迎您：<em style="color: #f89752;">{{ user.username }}</em>
-					<span>|</span>
-					<a href="{% url 'user:logout' %}">退出</a>
+					<span>|</span>   {# 行内以"|"间隔 #}
+					<a href="{% url 'user:logout' %} ">退出</a>
 				</div>
 				{% else %}
 				<div class="login_btn fl">
@@ -44,16 +45,14 @@
 				<div class="user_link fl">
 					<span>|</span>
 					<a href="{% url 'user:user' %}">用户中心</a>
-{#					<span>|</span>#}
+					<span>|</span>
+                    <a href="../static/cart.html">我的购物车</a>
+                    <span>|</span>
+{#					<a href="../static/cart.html" class="logo fl"><img src="{% static 'images/logo.png' %}" alt="Logo">我的购物车</a>#}
 {#					<a href="{% url 'cart:show' %}">我的购物车</a>#}
 {#					<span>|</span>#}
-{#					<a href="{% url 'user:order' 1 %}">我的订单</a>#}
-                    {#    测试用，直接导入static中的html         #}
-{#                    <a href="../static/user_center_info.html">用户中心</a>#}
+					<a href="{% url 'user:order'  %}">我的订单</a>
 					<span>|</span>
-					<a href="../static/cart.html">我的购物车</a>
-					<span>|</span>
-					<a href="../static/user_center_order.html">我的订单</a>
 				</div>
 			</div>
 		</div>		
@@ -62,21 +61,34 @@
 
 {# 网页顶部搜索块 #}
 {% block search_bar %}
-	<div class="search_bar clearfix">
-		<a href="index.html" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
-		<div class="search_con fl">
-			<form method="get" action="/search">
-			<input type="text" class="input_text fl" name="q" placeholder="搜索商品">
-			<input type="submit" class="input_btn fr" name="" value="搜索">
-			</form>
-		</div>
-		<div class="guest_cart fr">
-			<a href="#" class="cart_name fl">我的购物车</a>
-			<div class="goods_count fl" id="show_count">{{ cart_count }}</div>
-		</div>
-	</div>
-{% endblock search_bar %}
+<div class="top-bar">
+    <div class="logo-container">
+        <a href="{% url 'user:order' %}" class="site-logo">
+            <img src="{% static 'images/logo.png' %}" alt="咚咚锵">
+        </a>
+    </div>
 
+    <div class="search-box">
+        <form method="get" action="/search">
+            <input type="text" name="q" class="search-input" placeholder="搜索商品、品牌、类别...">
+            <button type="submit" class="search-button">搜索</button>
+        </form>
+        <div class="hot-words">
+            <span class="highlight">热门搜索：</span>
+            <a href="/search?q=手机" class="highlight">上海大学周边</a>
+            <a href="/search?q=电脑" class="highlight">爆炸外星人</a>
+            <a href="/search?q=耳机">hamin同款</a>
+            <a href="/search?q=平板">三星tabs8+</a>
+        </div>
+    </div>
+
+    <div class="cart-box">
+        <a href="{% url 'user:user' %}" class="cart-link">🛒 我的购物车</a>
+        <span class="cart-count" id="show_count">{{ cart_count }}</span>
+    </div>
+</div>
+{% endblock search_bar %}
+</body>
 {# 网页主体内容块 #}
 {% block body %}
 {% endblock body %}
@@ -91,8 +103,8 @@
 			<span>|</span>
 			<a href="#">友情链接</a>		
 		</div>
-		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
-		<p>电话：010-****888    京ICP备*******8号</p>
+		<p>CopyRight © 2016 上海咚咚锵信息技术有限公司 All Rights Reserved</p>
+		<p>电话：010-****888    沪ICP备*******8号</p>
 	</div>
 {# 网页底部html引入元素块 #}
 {% block bottom %}

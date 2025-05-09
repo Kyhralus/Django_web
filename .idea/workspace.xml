@@ -5,10 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f922b5c8-5456-48d4-b379-6fdaa8448af9" name="Changes" comment="完成教程第三节：实现用户中心的跳转、地址的设置和数据库的存储；但未实现分布式文件系统。">
+      <change afterPath="$PROJECT_DIR$/.idea/MarsCodeWorkspaceAppSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/3nav.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/cart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/cart2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/icons/collection.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/icons/head.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/icons/history.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/icons/order-status.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/icons/shop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/logo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/promotions/9.9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/promotions/live.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/jd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/my/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/t.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z_test/sidebar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z_test/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z_test/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/fdfs/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/fdfs/client.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/fdfs/storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DongDongQiang/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DongDongQiang/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DongDongQiang/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DongDongQiang/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_goods/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_goods/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_goods/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_goods/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_goods/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_goods/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_goods/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_goods/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ddq_goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_goods/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_detail_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_detail_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +52,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -39,6 +75,7 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -62,6 +99,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Django Server.DongDongQiang.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.python manage.py makemigrations # 是 Django 项目中用于生成数据库迁移文件的命令.executor": "Run",
@@ -72,13 +110,14 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/JetBrains/PycharmProjects/DongDongQiang",
+    "last_opened_file_path": "D:/JetBrains/PycharmProjects/DongDongQiang/static/images/promotions",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -90,13 +129,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images\promotions" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\templates" />
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps\ddq_user" />
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps\ddq_order" />
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps\ddq_goods" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images\icons" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\css" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images\" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\Buyers\templates" />
     </key>
@@ -200,6 +240,16 @@
       <workItem from="1746265888762" duration="113000" />
       <workItem from="1746322704761" duration="20108000" />
       <workItem from="1746404432154" duration="11582000" />
+      <workItem from="1746526002243" duration="9171000" />
+      <workItem from="1746619178283" duration="2525000" />
+      <workItem from="1746621755450" duration="127000" />
+      <workItem from="1746621912198" duration="430000" />
+      <workItem from="1746622385779" duration="5290000" />
+      <workItem from="1746664200066" duration="13667000" />
+      <workItem from="1746678569755" duration="714000" />
+      <workItem from="1746679925859" duration="4000" />
+      <workItem from="1746706577070" duration="11282000" />
+      <workItem from="1746750874400" duration="14288000" />
     </task>
     <task id="LOCAL-00001" summary="更改版本">
       <option name="closed" value="true" />
@@ -337,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746416999214</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="完成教程第三节：实现用户中心的跳转、地址的设置和数据库的存储；但未实现分布式文件系统。">
+      <option name="closed" value="true" />
+      <created>1746418578039</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1746418578039</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,6 +404,22 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="RECENT_FILTERS">
       <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
         <entry key="User">
           <value>
             <list>

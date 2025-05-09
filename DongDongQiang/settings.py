@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'ddq_order',  # 订单模块
     'ddq_user',  # 用户模块
     'tinymce',  # 富文本编辑器
+
 ]
 
 MIDDLEWARE = [
@@ -147,7 +148,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # 富文本编辑器配置
 TINYMCE_DEFAULT_CONFIG = {
-    'theme': 'advanced',
+    # 'theme': 'advanced',
+    'theme': 'silver',
     'width': 600,
     'height': 400,
 }

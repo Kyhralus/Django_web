@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三栏布局示例</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#7B61FF',
+            neutral: {
+              100: '#F5F7FA',
+              200: '#E4E6EB',
+              300: '#C9CDD4',
+              400: '#86909C',
+              500: '#4E5969',
+              600: '#272E3B',
+              700: '#1D2129',
+            }
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        contentVisibility: auto;
+      }
+      .sidebar-item-active {
+        @apply bg-primary/10 text-primary border-l-4 border-primary;
+      }
+      .nav-shadow {
+        box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.06);
+      }
+      .sidebar-shadow {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      }
+      .carousel-transition {
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+  </style>
+</head>
+<body class="font-inter bg-neutral-100 min-h-screen flex flex-col">
+  <!-- 顶部导航栏 -->
+  <header class="bg-white nav-shadow fixed top-0 left-0 right-0 z-30 transition-all duration-300">
+    <div class="container mx-auto px-4 flex items-center justify-between h-16">
+      <!-- 左侧菜单按钮 - 仅在移动设备显示 -->
+      <button id="menu-toggle" class="lg:hidden text-neutral-500 hover:text-primary">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+
+      <!-- 顶部导航 - 中间 -->
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="#" class="text-neutral-600 hover:text-primary font-medium transition-colors duration-200">首页</a>
+        <a href="#" class="text-neutral-600 hover:text-primary font-medium transition-colors duration-200">产品</a>
+        <a href="#" class="text-neutral-600 hover:text-primary font-medium transition-colors duration-200">服务</a>
+        <a href="#" class="text-neutral-600 hover:text-primary font-medium transition-colors duration-200">案例</a>
+        <a href="#" class="text-neutral-600 hover:text-primary font-medium transition-colors duration-200">关于我们</a>
+      </nav>
+
+      <!-- 顶部导航 - 右侧 -->
+      <div class="flex items-center space-x-4">
+        <button class="text-neutral-500 hover:text-primary transition-colors duration-200">
+          <i class="fa-solid fa-search text-lg"></i>
+        </button>
+        <button class="text-neutral-500 hover:text-primary transition-colors duration-200">
+          <i class="fa-solid fa-bell text-lg"></i>
+        </button>
+        <div class="relative group">
+          <button class="flex items-center space-x-2">
+            <img src="https://picsum.photos/id/1005/200/200" alt="用户头像" class="w-8 h-8 rounded-full object-cover border-2 border-white shadow-sm">
+            <span class="hidden md:inline text-neutral-700 font-medium">张三</span>
+            <i class="fa-solid fa-angle-down text-neutral-400"></i>
+          </button>
+          <!-- 下拉菜单 -->
+          <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right scale-95 group-hover:scale-100">
+            <a href="#" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">个人资料</a>
+            <a href="#" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">设置</a>
+            <div class="border-t border-neutral-200 my-1"></div>
+            <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-neutral-100">退出登录</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-1 pt-16">
+    <!-- 左侧导航栏 -->
+    <aside id="sidebar" class="bg-white sidebar-shadow w-64 fixed left-0 top-16 bottom-0 z-20 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out overflow-y-auto">
+      <div class="p-4">
+        <div class="mb-6">
+          <h2 class="text-neutral-500 text-xs uppercase font-semibold tracking-wider mb-3">主导航</h2>
+          <nav>
+            <a href="#" class="flex items-center px-4 py-3 rounded-lg sidebar-item-active mb-1">
+              <i class="fa-solid fa-home w-6"></i>
+              <span class="ml-3">仪表盘</span>
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 rounded-lg text-neutral-600 hover:bg-neutral-100 mb-1 transition-colors duration-200">
+              <i class="fa-solid fa-users w-6"></i>
+              <span class="ml-3">用户管理</span>
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 rounded-lg text-neutral-600 hover:bg-neutral-100 mb-1 transition-colors duration-200">
+              <i class="fa-solid fa-shopping-bag w-6"></i>
+              <span class="ml-3">产品管理</span>
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 rounded-lg text-neutral-600 hover:bg-neutral-100 mb-1 transition-colors duration-200">
+              <i class="fa-solid fa-chart-line w-6"></i>
+              <span class="ml-3">数据分析</span>
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 rounded-lg text-neutral-600 hover:bg-neutral-100 mb-1 transition-colors duration-200">
+              <i class="fa-solid fa-cog w-6"></i>
+              <span class="ml-3">系统设置</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="mb-6">
+          <h2 class="text-neutral-500 text-xs uppercase font-semibold tracking-wider mb-3">其他功能</h2>
+          <nav>
+            <a href="#" class="flex items-center px-4 py-3 rounded-lg text-neutral-600 hover:bg-neutral-100 mb-1 transition-colors duration-200">
+              <i class="fa-solid fa-question-circle w-6"></i>
+              <span class="ml-3">帮助中心</span>
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 rounded-lg text-neutral-600 hover:bg-neutral-100 mb-1 transition-colors duration-200">
+              <i class="fa-solid fa-file-text w-6"></i>
+              <span class="ml-3">文档中心</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="mt-8 p-4 bg-primary/5 rounded-lg">
+          <h3 class="text-primary font-medium mb-2">升级专业版</h3>
+          <p class="text-neutral-600 text-sm mb-4">解锁更多高级功能，提升工作效率</p>
+          <button class="w-full bg-primary hover:bg-primary/90 text-white py-2 rounded-lg transition-colors duration-200">
+            立即升级
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="flex-1 lg:ml-64 transition-all duration-300">
+      <div class="p-6">
+        <!-- 幻灯片放映 -->
+        <section class="mb-8">
+          <div class="relative rounded-xl overflow-hidden shadow-lg">
+            <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+              <div class="min-w-full">
+                <img src="https://picsum.photos/id/1015/1200/400" alt="幻灯片1" class="w-full h-80 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/70 to-transparent flex flex-col justify-center px-8">
+                  <h2 class="text-white text-3xl md:text-4xl font-bold mb-2">欢迎使用我们的平台</h2>
+                  <p class="text-white/90 text-lg max-w-xl mb-6">探索我们的产品和服务，为您的业务带来新的增长机遇</p>
+                  <button class="bg-white text-primary hover:bg-neutral-100 px-6 py-3 rounded-lg font-medium transition-colors duration-200 inline-flex items-center w-max">
+                    了解更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="min-w-full">
+                <img src="https://picsum.photos/id/1019/1200/400" alt="幻灯片2" class="w-full h-80 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-secondary/70 to-transparent flex flex-col justify-center px-8">
+                  <h2 class="text-white text-3xl md:text-4xl font-bold mb-2">全新功能上线</h2>
+                  <p class="text-white/90 text-lg max-w-xl mb-6">我们很高兴地宣布，平台新增了多项强大功能，助您更高效地工作</p>
+                  <button class="bg-white text-secondary hover:bg-neutral-100 px-6 py-3 rounded-lg font-medium transition-colors duration-200 inline-flex items-center w-max">
+                    查看详情 <i class="fa-solid fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="min-w-full">
+                <img src="https://picsum.photos/id/1035/1200/400" alt="幻灯片3" class="w-full h-80 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-neutral-70/70 to-transparent flex flex-col justify-center px-8">
+                  <h2 class="text-white text-3xl md:text-4xl font-bold mb-2">客户案例展示</h2>
+                  <p class="text-white/90 text-lg max-w-xl mb-6">看看我们的客户如何通过我们的解决方案取得了显著的业务成果</p>
+                  <button class="bg-white text-neutral-700 hover:bg-neutral-100 px-6 py-3 rounded-lg font-medium transition-colors duration-200 inline-flex items-center w-max">
+                    查看案例 <i class="fa-solid fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 幻灯片控制按钮 -->
+            <button id="prev-slide" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-neutral-700 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="next-slide" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-neutral-700 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <!-- 幻灯片指示器 -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200 carousel-indicator active" data-index="0"></button>
+              <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200 carousel-indicator" data-index="1"></button>
+              <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors duration-200 carousel-indicator" data-index="2"></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 其他内容区域 -->
+        <section>
+          <h2 class="text-2xl font-bold text-neutral-800 mb-6">平台概览</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-neutral-700">用户增长</h3>
+                <span class="bg-green-100 text-green-600 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                  <i class="fa-solid fa-arrow-up mr-1"></i> 12%
+                </span>
+              </div>
+              <p class="text-3xl font-bold text-neutral-800 mb-2">12,543</p>
+              <p class="text-neutral-500 text-sm">相比上月增长 1,325 用户</p>
+              <div class="mt-4 h-1 bg-neutral-200 rounded-full overflow-hidden">
+                <div class="h-full bg-green-500" style="width: 68%"></div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-neutral-700">活跃会话</h3>
+                <span class="bg-blue-100 text-blue-600 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                  <i class="fa-solid fa-arrow-up mr-1"></i> 8%
+                </span>
+              </div>
+              <p class="text-3xl font-bold text-neutral-800 mb-2">4,892</p>
+              <p class="text-neutral-500 text-sm">相比上月增长 368 会话</p>
+              <div class="mt-4 h-1 bg-neutral-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-500" style="width: 42%"></div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-neutral-700">转化率</h3>
+                <span class="bg-red-100 text-red-600 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                  <i class="fa-solid fa-arrow-down mr-1"></i> 3%
+                </span>
+              </div>
+              <p class="text-3xl font-bold text-neutral-800 mb-2">5.2%</p>
+              <p class="text-neutral-500 text-sm">相比上月下降 0.2 个百分点</p>
+              <div class="mt-4 h-1 bg-neutral-200 rounded-full overflow-hidden">
+                <div class="h-full bg-red-500" style="width: 28%"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="bg-white border-t border-neutral-200 py-6 lg:ml-64 transition-all duration-300">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p class="text-neutral-500 text-sm">© 2025 公司名称. 保留所有权利.</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-neutral-500 hover:text-primary transition-colors duration-200">
+            <i class="fa-brands fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-neutral-500 hover:text-primary transition-colors duration-200">
+            <i class="fa-brands fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-neutral-500 hover:text-primary transition-colors duration-200">
+            <i class="fa-brands fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-neutral-500 hover:text-primary transition-colors duration-200">
+            <i class="fa-brands fa-instagram text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 侧边栏切换
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    });
+
+    // 监听窗口大小变化，在大屏幕上显示侧边栏
+    window.addEventListener('resize', function() {
+      const sidebar = document.getElementById('sidebar');
+      if (window.innerWidth >= 1024) {
+        sidebar.classList.remove('-translate-x-full');
+      }
+    });
+
+    // 幻灯片轮播
+    let currentSlide = 0;
+    const slides = document.getElementById('carousel');
+    const slideCount = document.querySelectorAll('#carousel > div').length;
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const prevButton = document.getElementById('prev-slide');
+    const nextButton = document.getElementById('next-slide');
+
+    // 设置轮播自动播放
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    function updateSlide() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      // 更新指示器状态
+      indicators.forEach((indicator, index) => {
+        if (index === currentSlide) {
+          indicator.classList.add('active', 'bg-white');
+          indicator.classList.remove('bg-white/50');
+        } else {
+          indicator.classList.remove('active', 'bg-white');
+          indicator.classList.add('bg-white/50');
+        }
+      });
+
+      // 重置自动播放计时器
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slideCount;
+      updateSlide();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+      updateSlide();
+    }
+
+    // 绑定按钮事件
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+
+    // 绑定指示器事件
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlide();
+      });
+    });
+
+    // 添加鼠标悬停暂停自动播放功能
+    const carouselContainer = document.querySelector('#carousel').parentElement;
+    carouselContainer.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+    carouselContainer.addEventListener('mouseleave', () => {
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    // 滚动时改变导航栏样式
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 10) {
+        header.classList.add('bg-white/95', 'backdrop-blur-sm');
+        header.classList.remove('bg-white');
+      } else {
+        header.classList.remove('bg-white/95', 'backdrop-blur-sm');
+        header.classList.add('bg-white');
+      }
+    });
+  </script>
+</body>
+</html>
