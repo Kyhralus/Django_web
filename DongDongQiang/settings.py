@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'ddq_order',  # 订单模块
     'ddq_user',  # 用户模块
     'tinymce',  # 富文本编辑器
+    'haystack',
 
 ]
 
@@ -199,3 +200,18 @@ SESSION_CACHE_ALIAS = "default"
 
 # 在官网文档中调用login_required方法，设置验证不成功跳转的地址，则需要在项目settings配置文件中配置LOGIN_URL，设置为登录地址
 LOGIN_URL = "http://127.0.0.1:8000/user/login?next=/user/"
+
+# 全文检索haystack框架配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        # 使用whoosh引擎
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        # 索引文件路径
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+# 当数据库表 添加、修改、删除数据时，自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

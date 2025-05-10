@@ -1,220 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>仿京东首页</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Microsoft YaHei', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    .fs {
-      max-width: 1200px;
-      margin: 0 auto;
-      background-color: #fff;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .jd_container {
-      display: flex;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .cate {
-      width: 200px;
-      background-color: #F7F8FC;
-      padding: 10px;
-      border-radius: 8px;
-      position: relative;
-      z-index: 3;
-    }
-
-    .cate_menu {
-      list-style: none;
-      padding-top: 8px;
-      color: #636363;
-    }
-
-    .cate_menu li {
-      padding-left: 18px;
-      height: 34px;
-      line-height: 34px;
-      transition: background-color 0.2s ease;
-      margin-top: 1px;
-    }
-
-    .cate_menu li:first-child {
-      margin-top: 0;
-    }
-
-    .cate_menu li:hover,
-    .cate_menu_item_on {
-      background-color: #d9d9d9;
-    }
-
-    .cate_menu a {
-      font-family: PingFang SC;
-      font-size: 14px;
-      color: #1A1A1A;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .cate_menu a:hover {
-      border-bottom: 1.5px solid #ff0f23;
-    }
-
-    .cate_pop {
-      display: none;
-      position: absolute;
-      left: 200px;
-      top: 0;
-      width: 1023px;
-      min-height: 620px;
-      border: 1px solid #ff0f23;
-      background-color: #fff;
-      transition: top 0.25s ease;
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    .cate_part {
-      display: flex;
-      gap: 20px;
-    }
-
-    .cate_part_col1 {
-      flex: 3;
-      border-right: 1px solid #eee;
-      padding-right: 20px;
-    }
-
-    .cate_part_col2 {
-      flex: 1;
-    }
-
-    .cate_detail_item {
-      position: relative;
-      padding-left: 80px;
-      margin-bottom: 20px;
-    }
-
-    .cate_detail_tit {
-      position: absolute;
-      left: 0;
-      top: 6px;
-      font-weight: bold;
-      color: #1A1A1A;
-    }
-
-    .cate_detail_con {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .cate_detail_con_lk {
-      font-size: 13px;
-      color: #555;
-      text-decoration: none;
-    }
-
-    .cate_detail_con_lk:hover {
-      color: #ff0f23;
-      border-bottom: 1px solid #ff0f23;
-    }
-
-    .cate_brand_lk,
-    .cate_promotion_lk {
-      display: block;
-      width: 100%;
-      height: 100px;
-      margin-bottom: 10px;
-      background-color: #f0f0f0;
-      border-radius: 6px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品搜索结果 - 咚咚锵</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div class="fs">
-    <div class="jd_container jd_fs_container grid_c1 fs_inner">
-      <!-- 左侧导航栏 -->
-      <div class="fs_col1">
-        <div id="J_cate" class="cate J_cate fs_mod cate18" role="navigation" aria-label="左侧导航">
-          <ul class="JS_navCtn cate_menu">
-            <li><a href="#">家用电器</a></li>
-            <li><a href="#">手机/运营商/数码</a></li>
-            <li><a href="#">电脑/办公/文具用品</a></li>
-            <li><a href="#">家居/家具/家装/厨具</a></li>
-            <li><a href="#">男装/女装/童装/内衣</a></li>
-            <li><a href="#">美妆/个护清洁/宠物</a></li>
-            <li><a href="#">女鞋/箱包/钟表/珠宝</a></li>
-            <li><a href="#">男鞋/运动/户外</a></li>
-            <li><a href="#">房产/汽车/汽车用品</a></li>
-            <li><a href="#">母婴/玩具乐器</a></li>
-            <li><a href="#">食品/酒类/生鲜/特产</a></li>
-          </ul>
-          <!-- 弹出分类 -->
-          <div class="cate_pop">
-            <div class="cate_part">
-              <div class="cate_part_col1">
-                <div class="cate_detail_item">
-                  <div class="cate_detail_tit">手机通讯</div>
-                  <div class="cate_detail_con">
-                    <a href="#" class="cate_detail_con_lk">手机</a>
-                    <a href="#" class="cate_detail_con_lk">游戏手机</a>
-                    <a href="#" class="cate_detail_con_lk">对讲机</a>
-                    <a href="#" class="cate_detail_con_lk">手机配件</a>
-                  </div>
-                </div>
-                <div class="cate_detail_item">
-                  <div class="cate_detail_tit">运营商</div>
-                  <div class="cate_detail_con">
-                    <a href="#" class="cate_detail_con_lk">合约机</a>
-                    <a href="#" class="cate_detail_con_lk">办套餐</a>
-                    <a href="#" class="cate_detail_con_lk">充话费</a>
-                  </div>
-                </div>
-              </div>
-              <div class="cate_part_col2">
-                <a href="#" class="cate_brand_lk"></a>
-                <a href="#" class="cate_brand_lk"></a>
-                <a href="#" class="cate_promotion_lk"></a>
-              </div>
+    <div class="search-result-container">
+        <h1 class="search-result-title">“手机”的搜索结果</h1>
+        <div class="product-list">
+            <!-- 商品项示例，可根据实际数据循环生成 -->
+            <div class="product-item">
+                <a href="#" class="product-link">
+                    <img src="phone1.jpg" alt="手机1" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">iPhone 14 Pro</h3>
+                        <p class="product-price">¥7999</p>
+                        <p class="product-sales">销量：5000+</p>
+                    </div>
+                </a>
             </div>
-          </div>
+            <div class="product-item">
+                <a href="#" class="product-link">
+                    <img src="phone2.jpg" alt="手机2" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">华为P60 Art</h3>
+                        <p class="product-price">¥10988</p>
+                        <p class="product-sales">销量：3000+</p>
+                    </div>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="#" class="product-link">
+                    <img src="phone3.jpg" alt="手机3" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">小米13 Ultra</h3>
+                        <p class="product-price">¥5999</p>
+                        <p class="product-sales">销量：8000+</p>
+                    </div>
+                </a>
+            </div>
         </div>
-      </div>
-      <!-- 中间内容区域占位 -->
-      <div class="fs_col2">中间内容</div>
-      <!-- 右侧区域占位 -->
-      <div class="fs_col3">右侧区域</div>
+        <div class="pagination">
+            <a href="#" class="page-link prev">上一页</a>
+            <a href="#" class="page-link">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link next">下一页</a>
+        </div>
     </div>
-  </div>
-  <script>
-    // JS 控制 cate_pop 显示/隐藏（更适用于移动端或点击逻辑）
-    document.addEventListener('DOMContentLoaded', function () {
-      const cate = document.getElementById('J_cate');
-      const catePop = cate.querySelector('.cate_pop');
-
-      cate.addEventListener('mouseenter', () => {
-        catePop.style.display = 'block';
-      });
-
-      cate.addEventListener('mouseleave', () => {
-        catePop.style.display = 'none';
-      });
-    });
-  </script>
 </body>
+
 </html>

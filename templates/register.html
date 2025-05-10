@@ -31,15 +31,15 @@
 {% block body %}
 	<div class="register_con">
 		<div class="l_con fl">
-			<a class="reg_logo"><img src="{% static 'images/logo02.png' %}"></a>
-			<div class="reg_slogan">咚咚锵  ·  东东枪</div>
-			<div class="reg_banner"></div>
+			<a class="reg_logo"><img src="{% static 'images/logo.png'%}" width="193" height="90"></a>
+			<div class="reg_slogan">咚咚锵  ·  又快！又好！</div>
+{#			<div class="reg_banner"></div>#}
 		</div>
 
 		<div class="r_con fr">
 			<div class="reg_title clearfix">
 				<h1>用户注册</h1>
-				<a href="#">登录</a>
+				<a href="{% url 'user:login' %}">登录</a>
 			</div>
 			<div class="reg_form clearfix">
 				<form method="post" action="{% url 'user:register' %}">  <!-- 定义一个 HTML 表单，用于用户输入数据并提交到服务器。注册页面数据是以POST请求方式向服务器发送 -->
@@ -83,20 +83,5 @@
 		</div>
 
 	</div>
-
-	<div class="footer no-mp">
-		<div class="foot_link">
-			<a href="#">关于我们</a>
-			<span>|</span>
-			<a href="#">联系我们</a>
-			<span>|</span>
-			<a href="#">招聘人才</a>
-			<span>|</span>
-			<a href="#">友情链接</a>		
-		</div>
-		<p>CopyRight © 2049 上海咚咚锵信息技术有限公司 All Rights Reserved</p>
-		<p>电话：010-****888    沪ICP备*******8号</p>
-	</div>
-	
 {% endblock body %}
 {#</html>#}

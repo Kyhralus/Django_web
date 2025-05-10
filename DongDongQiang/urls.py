@@ -17,7 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, re_path, include
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),    # ，二级路由。指引到admin.site.urls文件的url
     path('user/', include(('ddq_user.urls', 'user'))),  # 用户模块
@@ -25,4 +26,5 @@ urlpatterns = [
     path('order/', include(('ddq_order.urls', 'order'))),  # 订单模块
     path('', include(('ddq_goods.urls', 'goods'))),  # 商品模块
     path('tinymce/', include('tinymce.urls')),
-]
+    path(r'search', include('haystack.urls')),  # 全文检索框架
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

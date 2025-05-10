@@ -56,6 +56,8 @@ class IndexView(View):
         context.update(cart_count=cart_count)
 
         # 使用模板
+        goods_skus = GoodsSKU.objects.filter(status=1).order_by('-sales')[:20]  # 热销商品前20
+        context.update({'goods_skus': goods_skus})
         return render(request, 'index.html', context)
 
 # /goods/商品id
