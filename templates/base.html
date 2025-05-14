@@ -46,12 +46,9 @@
 					<span>|</span>
 					<a href="{% url 'user:user' %}">用户中心</a>
 					<span>|</span>
-                    <a href="../static/cart.html">我的购物车</a>
+                    <a href="{% url 'cart:show' %}">我的购物车</a>
                     <span>|</span>
-{#					<a href="../static/cart.html" class="logo fl"><img src="{% static 'images/logo.png' %}" alt="Logo">我的购物车</a>#}
-{#					<a href="{% url 'cart:show' %}">我的购物车</a>#}
-{#					<span>|</span>#}
-					<a href="{% url 'user:order'  %}">我的订单</a>
+                    <a href="{% url 'user:order' 1 %}">我的订单</a>
 					<span>|</span>
 				</div>
 			</div>
@@ -63,7 +60,7 @@
 {% block search_bar %}
 <div class="top-bar">
     <div class="logo-container">
-        <a href="{% url 'user:order' %}" class="site-logo">
+        <a href="{% url 'goods:index' %}" class="site-logo">
             <img src="{% static 'images/logo.png' %}" alt="咚咚锵">
         </a>
     </div>
@@ -75,15 +72,15 @@
         </form>
         <div class="hot-words">
             <span class="highlight">热门搜索：</span>
-            <a href="/search?q=手机" class="highlight">上海大学周边</a>
-            <a href="/search?q=电脑" class="highlight">爆炸外星人</a>
-            <a href="/search?q=耳机">hamin同款</a>
-            <a href="/search?q=平板">三星tabs8+</a>
+            <a href="/search?q=上海大学" class="highlight">上海大学</a>
+            <a href="/search?q=手机" class="highlight">手机</a>
+            <a href="/search?q=水果">水果</a>
+            <a href="/search?q=葡萄">葡萄</a>
         </div>
     </div>
 
     <div class="cart-box">
-        <a href="{% url 'user:user' %}" class="cart-link">🛒 我的购物车</a>
+        <a href="{% url 'cart:show' %}" class="cart-link">🛒 我的购物车</a>
         <span class="cart-count" id="show_count">{{ cart_count }}</span>
     </div>
 </div>

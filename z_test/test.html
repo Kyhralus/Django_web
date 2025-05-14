@@ -1,57 +1,83 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品搜索结果 - 咚咚锵</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>最近浏览</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <style>
+    .recent-container {
+      width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .recent-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 10px;
+    }
+    .recent-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .recent-item {
+      width: 220px;
+      border: 1px solid #f0f0f0;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fafafa;
+      transition: all 0.3s ease;
+    }
+    .recent-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .recent-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .recent-info {
+      padding: 10px;
+    }
+    .recent-info h4 {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 8px;
+      height: 40px;
+      overflow: hidden;
+    }
+    .recent-info .price {
+      color: #e4393c;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="search-result-container">
-        <h1 class="search-result-title">“手机”的搜索结果</h1>
-        <div class="product-list">
-            <!-- 商品项示例，可根据实际数据循环生成 -->
-            <div class="product-item">
-                <a href="#" class="product-link">
-                    <img src="phone1.jpg" alt="手机1" class="product-img">
-                    <div class="product-info">
-                        <h3 class="product-title">iPhone 14 Pro</h3>
-                        <p class="product-price">¥7999</p>
-                        <p class="product-sales">销量：5000+</p>
-                    </div>
-                </a>
-            </div>
-            <div class="product-item">
-                <a href="#" class="product-link">
-                    <img src="phone2.jpg" alt="手机2" class="product-img">
-                    <div class="product-info">
-                        <h3 class="product-title">华为P60 Art</h3>
-                        <p class="product-price">¥10988</p>
-                        <p class="product-sales">销量：3000+</p>
-                    </div>
-                </a>
-            </div>
-            <div class="product-item">
-                <a href="#" class="product-link">
-                    <img src="phone3.jpg" alt="手机3" class="product-img">
-                    <div class="product-info">
-                        <h3 class="product-title">小米13 Ultra</h3>
-                        <p class="product-price">¥5999</p>
-                        <p class="product-sales">销量：8000+</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="pagination">
-            <a href="#" class="page-link prev">上一页</a>
-            <a href="#" class="page-link">1</a>
-            <a href="#" class="page-link">2</a>
-            <a href="#" class="page-link">3</a>
-            <a href="#" class="page-link next">下一页</a>
-        </div>
+  <div class="recent-container">
+    <div class="recent-title">最近浏览的商品</div>
+    <div class="recent-list">
+      {% for sku in recent_skus %}
+      <div class="recent-item">
+        <a href="{% url 'goods:detail' sku.id %}">
+          <img src="{{ sku.image.url }}" alt="{{ sku.name }}">
+          <div class="recent-info">
+            <h4>{{ sku.name }}</h4>
+            <div class="price">¥{{ sku.price }}</div>
+          </div>
+        </a>
+      </div>
+      {% empty %}
+        <p>您还没有浏览过商品。</p>
+      {% endfor %}
     </div>
+  </div>
 </body>
-
 </html>

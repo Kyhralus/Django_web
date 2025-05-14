@@ -44,7 +44,7 @@ class GoodsSKU(BaseModel):
         return self.name
 
 class Goods(BaseModel):
-    """商品SPU模型类"""
+    """商品SPU模型类"""   # SPU：Standard Product Unit 标准商品单位
     name = models.CharField(max_length=20, verbose_name='商品SPU名称')
     # 富文本类型:带有格式的文本
     detail = HTMLField(blank=True, verbose_name='商品详情') # blank:指明可以不输入内容(从创建内容有效性)；null:指明数据库能不能为空
@@ -78,8 +78,8 @@ class IndexGoodsBanner(BaseModel):
         verbose_name = '首页轮播商品'
         verbose_name_plural = verbose_name
 
-    def __str__(self):  # django后台中文显示
-        return self.name
+    def __str__(self):
+        return self.sku.name
 
 class IndexTypeGoodsBanner(BaseModel):
     """首页分类商品展示模型类"""

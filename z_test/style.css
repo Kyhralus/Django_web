@@ -1,105 +1,209 @@
+/* 全局样式 */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-.search-result-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
-.search-result-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+/* 面包屑导航 */
+.breadcrumb {
+    background-color: #f8f8f8;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
     color: #333;
-}
-
-.product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.product-item {
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #fff;
-    transition: transform 0.3s ease;
-}
-
-.product-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.product-link {
     text-decoration: none;
-    color: #333;
 }
 
-.product-img {
+.breadcrumb span {
+    margin: 0 5px;
+}
+
+/* 商品详情内容 */
+.product-detail-container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.product-image {
+    width: 40%;
+}
+
+.product-image img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
 }
 
 .product-info {
-    padding: 15px;
+    width: 60%;
+    padding: 20px;
 }
 
-.product-title {
+.product-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.price-bar {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.price {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.quantity {
+    margin-bottom: 20px;
+}
+
+.quantity-label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.quantity-controls {
+    display: inline-block;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.increase,
+.decrease {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.total-price {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.operation-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.operation-buttons a:hover {
+    background-color: #e60000;
+}
+
+/* 商品详情和评论区域 */
+.left-section {
+    width: 30%;
+}
+
+.new-products {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.new-products h3 {
     font-size: 18px;
     margin-bottom: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.product-price {
+.new-products ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.new-products li {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.new-products li img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.new-products li h4 {
     font-size: 16px;
-    color: #e4393c;
-    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
-.product-sales {
+.new-products li .product-price {
+    color: #ff0000;
     font-size: 14px;
-    color: #888;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.right-section {
+    width: 70%;
+    padding: 20px;
 }
 
-.page-link {
+.detail-tabs {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.detail-tabs li {
     display: inline-block;
-    padding: 8px 12px;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
-.page-link:hover {
-    background-color: #e0e0e0;
+.detail-tabs li.active {
+    border-bottom: 2px solid #ff0000;
+    color: #ff0000;
 }
 
-.prev,
-.next {
-    background-color: #f0f0f0;
+.tab-content div {
+    display: none;
 }
 
-.prev:hover,
-.next:hover {
-    background-color: #d9d9d9;
+.tab-content div.active {
+    display: block;
+}
+
+.product-description {
+    line-height: 1.6;
+}
+
+.product-reviews {
+    line-height: 1.6;
+}
+
+.product-reviews .review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.product-reviews .reviewer {
+    font-weight: bold;
+    margin-bottom: 5px;
 }

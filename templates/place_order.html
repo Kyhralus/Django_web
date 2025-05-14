@@ -1,117 +1,378 @@
 {% extends 'base_no_cart.html' %}
-{% load static %}   {# 导入静态文件 #}
-{% block title %}天天生鲜-提交订单{% endblock title %}
+{% load static %}
+{% block title %}咚咚锵-提交订单{% endblock title %}
 {% block page_title %}提交订单{% endblock page_title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/order.css' %}">
+{% endblock css %}
 {% block body %}
-	<h3 class="common_title">确认收货地址</h3>
+    <div class="order-container">
+        <!-- 步骤指示器 -->
+        <div class="order-steps">
+            <div class="step-line"></div>
+            <div class="step-item active">
+                <div class="step-circle">1</div>
+                <span class="step-text">购物车</span>
+            </div>
+            <div class="step-item active">
+                <div class="step-circle">2</div>
+                <span class="step-text">确认订单</span>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">3</div>
+                <span class="step-text">支付完成</span>
+            </div>
+        </div>
 
-	<div class="common_list_con clearfix">
-		<dl>
-			<dt>寄送到：</dt>
-			{% for addr in addrs %}
-			<dd><input type="radio" name="addr_id" value="{{ addr.id }}" {% if addr.is_default %}checked{% endif %}>{{ addr.addr }} （{{ addr.receiver }} 收） {{ addr.phone }}</dd>
-			{% endfor %}
-		</dl>
-		<a href="{% url 'user:address' %}" class="edit_site">编辑收货地址</a>
+        <form id="order_form" method="post" action="/order/commit">
+            {% csrf_token %}
+            <!-- 收货地址 -->
+            <div class="order-section">
+                <h3 class="section-title">
+                    <i class="fa fa-map-marker"></i>确认收货地址
+                </h3>
+                <div class="address-list">
+                    {% for addr in addrs %}
+                    <label for="addr_{{ addr.id }}" class="address-card">
+                        <input type="radio" name="addr_id" value="{{ addr.id }}" {% if addr.is_default %}checked{% endif %} id="addr_{{ addr.id }}" class="hidden-radio">
+                        <div class="check-icon"></div>
+                        <div class="address-info">
+                            <div class="receiver-info">{{ addr.receiver }} | {{ addr.phone }}</div>
+                            <div class="address-details">{{ addr.addr }}</div>
+                            {% if addr.is_default %}
+                            <span class="default-tag">默认地址</span>
+                            {% endif %}
+                        </div>
+                    </label>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'user:address' %}" class="edit-address">
+                    <i class="fa fa-pencil"></i> 编辑收货地址
+                </a>
+            </div>
 
-	</div>
-	
-	<h3 class="common_title">支付方式</h3>	
-	<div class="common_list_con clearfix">
-		<div class="pay_style_con clearfix">
-			<input type="radio" name="pay_style" value="1" checked>
-			<label class="cash">货到付款</label>
-			<input type="radio" name="pay_style" value="2">
-			<label class="weixin">微信支付</label>
-			<input type="radio" name="pay_style" value="3">
-			<label class="zhifubao"></label>
-			<input type="radio" name="pay_style" value="4">
-			<label class="bank">银行卡支付</label>
-		</div>
-	</div>
+            <!-- 支付方式 -->
+            <div class="order-section">
+                <h3 class="section-title">
+                    <i class="fa fa-credit-card"></i>支付方式
+                </h3>
+                <div class="payment-methods">
+                    <label for="pay_style_1" class="payment-option">
+                        <input type="radio" name="pay_style" value="1" checked id="pay_style_1" class="hidden-radio">
+                        <div class="check-icon"></div>
+                        <div class="payment-content">
+                            <i class="fa fa-truck"></i>
+                            <div>
+                                <span>货到付款</span>
+                                <p>收货时付款</p>
+                            </div>
+                        </div>
+                    </label>
 
-	<h3 class="common_title">商品列表</h3>
-	
-	<div class="common_list_con clearfix">
-		<ul class="goods_list_th clearfix">
-			<li class="col01">商品名称</li>
-			<li class="col02">商品单位</li>
-			<li class="col03">商品价格</li>
-			<li class="col04">数量</li>
-			<li class="col05">小计</li>		
-		</ul>
-		{% for sku in skus %}
-		<ul class="goods_list_td clearfix">
-			<li class="col01">{{ forloop.counter }}</li>
-			<li class="col02"><img src="{{ sku.image.url }}"></li>
-			<li class="col03">{{ sku.name }}</li>
-			<li class="col04">{{ sku.unite }}</li>
-			<li class="col05">{{ sku.price }}元</li>
-			<li class="col06">{{ sku.count }}</li>
-			<li class="col07">{{ sku.amount }}元</li>
-		</ul>
-		{% endfor %}
-	</div>
+                    <label for="pay_style_3" class="payment-option">
+                        <input type="radio" name="pay_style" value="3" id="pay_style_3" class="hidden-radio">
+                        <div class="check-icon"></div>
+                        <div class="payment-content">
+                            <i class="fa fa-alipay"></i>
+                            <div>
+                                <span>支付宝</span>
+                                <p>扫码支付</p>
+                            </div>
+                        </div>
+                    </label>
 
-	<h3 class="common_title">总金额结算</h3>
+                    <label for="pay_style_2" class="payment-option">
+                        <input type="radio" name="pay_style" value="2" id="pay_style_2" class="hidden-radio">
+                        <div class="check-icon"></div>
+                        <div class="payment-content">
+                            <i class="fa fa-weixin"></i>
+                            <div>
+                                <span>微信支付</span>
+                                <p>扫码支付</p>
+                            </div>
+                        </div>
+                    </label>
 
-	<div class="common_list_con clearfix">
-		<div class="settle_con">
-			<div class="total_goods_count">共<em>{{ total_count }}</em>件商品，总金额<b>{{ total_price }}元</b></div>
-			<div class="transit">运费：<b>{{ transit_price }}元</b></div>
-			<div class="total_pay">实付款：<b>{{ total_pay }}元</b></div>
-		</div>
-	</div>
+                    <label for="pay_style_4" class="payment-option">
+                        <input type="radio" name="pay_style" value="4" id="pay_style_4" class="hidden-radio">
+                        <div class="check-icon"></div>
+                        <div class="payment-content">
+                            <i class="fa fa-credit-card"></i>
+                            <div>
+                                <span>银行卡</span>
+                                <p>在线支付</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
 
-	<div class="order_submit clearfix">
-		{% csrf_token %}
-		<a href="javascript:;" sku_ids={{ sku_ids }} id="order_btn">提交订单</a>
-	</div>	
+            <!-- 商品列表 -->
+            <div class="order-section">
+                <h3 class="section-title">
+                    <i class="fa fa-shopping-basket"></i>商品列表
+                </h3>
+                <div class="goods-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>商品</th>
+                                <th>单位</th>
+                                <th>单价</th>
+                                <th>数量</th>
+                                <th>小计</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for sku in skus %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <div class="product-info">
+                                        <img src="{{ sku.image.url }}" alt="{{ sku.name }}">
+                                        <div>{{ sku.name }}</div>
+                                    </div>
+                                </td>
+                                <td>{{ sku.unite }}</td>
+                                <td>¥{{ sku.price }}</td>
+                                <td>{{ sku.count }}</td>
+                                <td class="amount">¥{{ sku.amount }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 金额结算 -->
+            <div class="order-section">
+                <h3 class="section-title">
+                    <i class="fa fa-calculator"></i>总金额结算
+                </h3>
+                <div class="settlement-details">
+                    <div class="settlement-item">
+                        <span>商品总数</span>
+                        <span>共 <span class="highlight">{{ total_count }}</span> 件商品</span>
+                    </div>
+                    <div class="settlement-item">
+                        <span>商品总价</span>
+                        <span>¥{{ total_price }}</span>
+                    </div>
+                    <div class="settlement-item">
+                        <span>运费</span>
+                        <span>¥{{ transit_price }}</span>
+                    </div>
+                    <div class="settlement-item">
+                        <span>优惠券</span>
+                        <span class="discount">- ¥0.00</span>
+                    </div>
+                    <div class="total-amount">
+                        <span>实付款</span>
+                        <span class="final-price">¥{{ total_pay }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 提交按钮 -->
+            <div class="order-actions">
+                <a href="{% url 'goods:index' %}" id="cancel_btn" class="btn btn-cancel">
+                    <i class="fa fa-times-circle"></i> 取消订单
+                </a>
+                <button type="button" id="order_btn" class="btn btn-submit">
+                    <i class="fa fa-check-circle"></i> 提交订单
+                </button>
+            </div>
+        </form>
+    </div>
 {% endblock body %}
 {% block bottom %}
-	<div class="popup_con">
-		<div class="popup">
-			<p>订单提交成功！</p>
-		</div>
-		
-		<div class="mask"></div>
-	</div>
+    <div class="popup_con">
+        <div class="mask"></div>
+        <div class="popup">
+            <div class="popup-content">
+                <div class="success-icon">
+                    <i class="fa fa-check"></i>
+                </div>
+                <h3>订单提交成功！</h3>
+                <p>我们将尽快为您处理订单，感谢您的购买！</p>
+                <div class="countdown">
+                    <span id="countdown">3</span> 秒后自动跳转到订单列表
+                </div>
+                <button id="close_popup">
+                    立即查看订单
+                </button>
+            </div>
+        </div>
+    </div>
 {% endblock bottom %}
 {% block bottomfiles %}
-	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
-	<script type="text/javascript">
-		$('#order_btn').click(function() {
-            // 获取用户选择的地址id, 支付方式, 要购买的商品id字符串
-            addr_id = $('input[name="addr_id"]:checked').val()
-            pay_method = $('input[name="pay_style"]:checked').val()
-            sku_ids = $(this).attr('sku_ids')
-            csrf = $('input[name="csrfmiddlewaretoken"]').val()
-            // alert(addr_id+":"+pay_method+':'+sku_ids)
-            // 组织参数
-            params = {'addr_id':addr_id, 'pay_method':pay_method, 'sku_ids':sku_ids,
-                        'csrfmiddlewaretoken':csrf}
-            // 发起ajax post请求，访问/order/commit, 传递的参数: addr_id pay_method, sku_ids
-            $.post('/order/commit', params, function (data) {
-                if (data.res == 5){
-                    // 创建成功
-                    localStorage.setItem('order_finish',2);
-                    $('.popup_con').fadeIn('fast', function() {
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript">
+        // 初始化
+        $(document).ready(function() {
+            // 初始化支付按钮样式
+            initPaymentButtons();
 
-                        setTimeout(function(){
-                            $('.popup_con').fadeOut('fast',function(){
-                                window.location.href = '/user/order/1';
-                            });
-                        },3000)
+            // 初始化地址选择样式
+            initAddressSelection();
 
-                    });
+            // 提交订单按钮
+            $('#order_btn').click(function() {
+                // 获取用户选择的地址id, 支付方式, 要购买的商品id字符串
+                var addr_id = $('input[name="addr_id"]:checked').val();
+                var pay_method = $('input[name="pay_style"]:checked').val();
+                var sku_ids = "{{ sku_ids }}";
+                var csrf = $('input[name="csrfmiddlewaretoken"]').val();
+
+                // 禁用按钮，防止重复提交
+                $(this).attr('disabled', true).addClass('disabled');
+                $(this).html('<i class="fa fa-spinner fa-spin mr-2"></i> 提交中...');
+
+                // 组织参数
+                var params = {
+                    'addr_id': addr_id,
+                    'pay_method': pay_method,
+                    'sku_ids': sku_ids,
+                    'csrfmiddlewaretoken': csrf
+                };
+
+                // 发起ajax post请求，访问/order/commit, 传递的参数: addr_id pay_method, sku_ids
+                $.post('/order/commit', params, function(data) {
+                    if (data.res == 5) {
+                        // 创建成功
+                        localStorage.setItem('order_finish', 2);
+                        showSuccessPopup();
+                    } else {
+                        alert(data.errmsg);
+                    }
+
+                    // 恢复按钮状态
+                    $('#order_btn').attr('disabled', false).removeClass('disabled');
+                    $('#order_btn').html('<i class="fa fa-check-circle mr-2"></i> 提交订单');
+                });
+            });
+
+            // 取消订单按钮
+            $('#cancel_btn').click(function() {
+                if (confirm('确定要取消订单吗？您的购物车内容将保留。')) {
+                    window.location.href = "{% url 'goods:index' %}";
                 }
-                else{
-                    alert(data.errmsg)
+            });
+
+            // 关闭弹窗按钮
+            $('#close_popup').click(function() {
+                hideSuccessPopup();
+                window.location.href = '/user/order/1';
+            });
+        });
+
+        // 初始化支付按钮样式
+        function initPaymentButtons() {
+            // 初始化选中的支付方式
+            updatePaymentButtonState();
+
+            // 监听支付方式变化
+            $('input[name="pay_style"]').change(function() {
+                updatePaymentButtonState();
+            });
+        }
+
+        // 更新支付按钮状态
+        function updatePaymentButtonState() {
+            $('input[name="pay_style"]').each(function() {
+                const $this = $(this);
+                const $label = $this.closest('.payment-option');
+                const $checkIcon = $label.find('.check-icon');
+
+                if ($this.is(':checked')) {
+                    $label.addClass('selected');
+                    $checkIcon.addClass('checked');
+                } else {
+                    $label.removeClass('selected');
+                    $checkIcon.removeClass('checked');
                 }
-            })
+            });
+        }
 
+        // 初始化地址选择样式
+        function initAddressSelection() {
+            // 初始化选中的地址
+            updateAddressSelectionState();
 
+            // 监听地址选择变化
+            $('input[name="addr_id"]').change(function() {
+                updateAddressSelectionState();
+            });
+        }
 
-		});
-	</script>
+        // 更新地址选择状态
+        function updateAddressSelectionState() {
+            $('input[name="addr_id"]').each(function() {
+                const $this = $(this);
+                const $label = $this.closest('.address-card');
+                const $checkIcon = $label.find('.check-icon');
+
+                if ($this.is(':checked')) {
+                    $label.addClass('selected');
+                    $checkIcon.addClass('checked');
+                } else {
+                    $label.removeClass('selected');
+                    $checkIcon.removeClass('checked');
+                }
+            });
+        }
+
+        // 显示成功弹窗
+        function showSuccessPopup() {
+            const $popupCon = $('.popup_con');
+            const $popup = $('.popup');
+
+            // 显示弹窗容器
+            $popupCon.css({
+                'opacity': '1',
+                'visibility': 'visible'
+            });
+
+            // 添加动画效果
+            setTimeout(() => {
+                $popup.css({
+                    'transform': 'scale(1)'
+                });
+            }, 50);
+
+            // 倒计时跳转
+            let countdown = 3;
+            const $countdown = $('#countdown');
+
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                $countdown.text(countdown);
+
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    hideSuccessPopup();
+                    window.location.href = '/user/order/1';
+                }
+            }, 1000);
+        }
+
+        // 隐藏成功弹窗
+        function hideSuccessPopup() {
+            const $popupCon = $('.popup_con');
+            const $popup = $('.popup');
+
+            // 添加关闭动画
+            $popup.css({
+                'transform': 'scale(0.9)'
+            });
+
+            setTimeout(() => {
+                $popupCon.css({
+                    'opacity': '0',
+                    'visibility': 'hidden'
+                });
+            }, 300);
+        }
+    </script>
 {% endblock bottomfiles %}

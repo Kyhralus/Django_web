@@ -6,15 +6,17 @@ from django.contrib import messages
 from django.views.generic import View
 from django.core.mail import send_mail
 from DongDongQiang import settings
+from django.core.paginator import Paginator
 import re
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 # from celery_tasks.tasks import send_email   # 待添加
 # 从其他模块导入函数
 from utils.mixin import LoginRequiredMixin
-from apps.ddq_user.models import Address, User
+from apps.ddq_user.models import Address, User, Balance
 from apps.ddq_goods.models import GoodsSKU
+from apps.ddq_order.models import OrderInfo, OrderGoods
 from django_redis import get_redis_connection
-
+from decimal import Decimal  # 导入 Decimal 类
 # 生成令牌
 def generate_token(user_id):
     serializer = URLSafeTimedSerializer(settings.SECRET_KEY, salt='account-activation')
@@ -225,17 +227,24 @@ class UserInfoView(LoginRequiredMixin, View):
         # 获取用户的个人信息
         user = request.user
         address = Address.objects.get_default_address(user)
+        # 组织上下文
+        context = {'page': 'user',
+                   'address': address,}
 
+        return render(request, 'user_center_info.html', context)
+
+class UserHistoryView(LoginRequiredMixin, View):
+    """用户中心-历史浏览"""
+    def get(self, request):
+        """显示"""
+        user = request.user
         # 获取用户的历史记录
         # from redis import StrictRedis
         # sr = StrictRedis(host="127.0.0.1", port="6379", db=9)
         con = get_redis_connection('default')
-
         history_key = 'history_%d' % user.id
-
         # 获取用户最新浏览的5个商品的id
-        sku_ids = con.lrange(history_key, 0, 4)
-
+        sku_ids = con.lrange(history_key, 0, 20)
         # 从数据库中查询用户浏览的商品的具体信息
         #goods_li = GoodsSKU.objects.filter(id__in=sku_ids)
 
@@ -254,43 +263,95 @@ class UserInfoView(LoginRequiredMixin, View):
 
         # 组织上下文
         context = {'page': 'user',
-                   'address': address,
                    'goods_li': goods_li}
+        return render(request, 'user_center_history.html', context)
 
-        return render(request, 'user_center_info.html', context)
 
+
+# /user/order
 class UserOrderView(LoginRequiredMixin, View):
-    """用户中心-订单"""
-    def get(self, request):
-        """显示页面"""
-        return render(request, "user_center_info.html", {"page": "order"})
+    """用户中心-信息页"""
+    def get(self, request, page):
+        """显示"""
+        # 获取用户的订单信息
+        user = request.user
+        orders = OrderInfo.objects.filter(user=user).order_by('-create_time')
 
+        # 便利获取订单商品的信息
+        for order in orders:
+            # 根据order_id查询订单商品信息
+            order_skus = OrderGoods.objects.filter(order_id=order.order_id)
+
+            # 便利order_skus计算商品的小计
+            for order_sku in order_skus:
+                # 计算小计
+                amount = order_sku.count * order_sku.price
+                # 动态给order_sku增加属性amount，保存订单商品的小计
+                order_sku.amount = amount
+            order.status_name = OrderInfo.ORDER_STATUS[order.order_status]
+            # 动态给order增加属性，保存订单商品的信息
+            order.order_skus = order_skus
+
+        # 分页
+        paginator = Paginator(orders, 10)  #  Show 10 contacts per page
+
+        # 获取第page页的内容
+        try:
+            page = int(page)
+        except Exception as e:
+            page = 1
+
+        if page > paginator.num_pages:
+            page = 1
+
+        # 获取第page页的Page实例对象
+        order_page = paginator.page(page)
+
+        # todo: 进行页码的控制，页面上最多显示5个页码
+        # 1.总页数小于5页，页面上显示所有页码
+        # 2.如果当前页是前3页，显示1-5页
+        # 3.如果当前页是后3页，显示后5页
+        # 4.其他情况，显示当前页的前2页，当前页，当前页的后2页
+        num_pages = paginator.num_pages
+        if num_pages < 5:
+            pages = range(1, num_pages + 1)
+        elif page <= 3:
+            pages = range(1, 6)
+        elif num_pages - page <= 2:
+            pages = range(num_pages - 4, num_pages + 1)
+        else:
+            pages = range(page - 2, page + 3)
+
+        print(order_page)
+        # 组织上下文
+        context = {'order_page': order_page,
+                   'pages': pages,
+                   'page': 'order'}
+
+        return render(request, 'user_center_order.html', context)
 # /user/address
 class UserAddressView(LoginRequiredMixin, View):
     """用户中心-地址"""
     def get(self, request):
         """显示"""
-        # page='address'
         # 获取登录用户的对应的User对象
         user = request.user
 
-        # 获取用户的默认收货地址
-        # try:
-        #     address = Address.objects.get(user=user, is_default=True)
-        # except Address.DoesNotExist:
-        #     # 不存在默认收获地址
-        #     address = None
-        address = Address.objects.get_default_address(user)    # 通过封装的模型管理器方法获取默认地址对象
+        # 获取用户的所有地址
+        addresses = Address.objects.filter(user=user)
 
-        return render(request, 'user_center_site.html', {'page': 'address', 'address': address})
+        # 获取用户的默认收货地址
+        default_address = Address.objects.get_default_address(user)
+
+        return render(request, 'user_center_site.html', {'page': 'address', 'addresses': addresses, 'default_address': default_address})
 
     def post(self, request):
         """地址的添加"""
         # 接受数据
         receiver = request.POST.get('receiver')
         addr = request.POST.get('addr')
-        zip_code = request.POST.get('zip_code')
         phone = request.POST.get('phone')
+        default_address_id = request.POST.get('default_address')
 
         # 校验数据
         if not all([receiver, addr, phone]):
@@ -301,29 +362,55 @@ class UserAddressView(LoginRequiredMixin, View):
             return render(request, 'user_center_site.html', {'errmsg': '手机格式不正确'})
 
         # 业务处理：地址添加
-        # 如果用户已存在默认收获地址，添加的地址不作为默认收货地址，否则作为默认收货地址
-        # 获取登录用户的对应的User对象
         user = request.user
-        # try:
-        #     address = Address.objects.get(user=user, is_default=True)
-        # except Address.DoesNotExist:
-        #     # 不存在默认收获地址
-        #     address =None
-        address = Address.objects.get_default_address(user)    # 通过封装的模型管理器方法获取默认地址对象
+        # 先将所有地址设为非默认
+        Address.objects.filter(user=user).update(is_default=False)
 
-        if address:
-            is_default = False
-        else:
-            is_default = True
+        # 设置选中的地址为默认地址
+        if default_address_id:
+            try:
+                default_address = Address.objects.get(id=default_address_id)
+                default_address.is_default = True
+                default_address.save()
+            except Address.DoesNotExist:
+                pass
 
-        # 添加地址
-        Address.objects.create(user=user,
-                               receiver=receiver,
-                               addr=addr,
-                               phone=phone,
-                               zip_code=zip_code,
-                               is_default=is_default)
+        # 如果有新地址信息，添加新地址
+        if receiver and addr and phone:
+            Address.objects.create(user=user,
+                                   receiver=receiver,
+                                   addr=addr,
+                                   phone=phone,
+                                   is_default=False)
 
         # 返回应答,刷新地址页面 get请求
         return redirect(reverse('user:address'))
 
+class UserBalanceView(LoginRequiredMixin, View):
+    """用户中心-余额"""
+    def get(self, request):
+        """显示"""
+        # 获取用户的余额信息
+        user = request.user
+        # 获取余额对象（自动创建）和余额数值
+        balance = Balance.objects.get_or_create_balance(user)
+        balance_amount = balance.amount
+
+        # 组织上下文
+        context = {'page': 'balance',
+                   'balance': balance}
+        return render(request, 'user_center_balance.html', context)
+
+    def post(self, request):
+        """处理充值请求"""
+        user = request.user
+        balance = Balance.objects.get_or_create_balance(user)
+        try:
+            amount_str = request.POST.get('amount')
+            amount = Decimal(amount_str)  # 将字符串转换为 Decimal 类型
+            if amount > 0:
+                balance.amount += amount
+                balance.save()
+        except (ValueError, TypeError):
+            pass
+        return redirect('user:balance')

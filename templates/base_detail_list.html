@@ -8,16 +8,25 @@
             <span></span>
             <ul class="subnav">
                 {% for type in types %}
-                <li><a href="{% url 'goods:list' type.id 1 %}" class="{{ type.logo }}">{{ type.name }}</a></li>
+{#                <li><a href="{% url 'goods:list' type.id 1 %}" class="{{ type.logo }}">{{ type.name }}</a></li>#}
                 {% endfor %}
             </ul>
         </div>
         <ul class="navlist fl">
-            <li><a href="">首页</a></li>
+            <li><a href="{% url 'goods:index' %}">首页</a></li>
             <li class="interval">|</li>
-            <li><a href="">手机生鲜</a></li>
+            <li><a href="">大牌奥莱</a></li>
             <li class="interval">|</li>
-            <li><a href="">抽奖</a></li>
+            <li><a href="">美妆馆</a></li>
+            <li class="interval">|</li>
+            <li><a href="">超市</a></li>
+            <li class="interval">|</li>
+            <li><a href="">生鲜</a></li>
+            <li class="interval">|</li>
+            <li><a href="">咚咚锵国际</a></li>
+            <li class="interval">|</li>
+            <li><a href="">拍卖</a></li>
+            <li class="interval">|</li>
         </ul>
     </div>
 </div>

@@ -1,22 +1,3 @@
-{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
-{#<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">#}
-{#<head>#}
-{#	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">#}
-{#	<title>天天生鲜-首页</title>#}
-{#	<link rel="stylesheet" type="text/css" href="css/reset.css">#}
-{#	<link rel="stylesheet" type="text/css" href="css/main.css">#}
-{#{% load static %}   {# 导入静态文件 #}
-{#<head>#}
-{#    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">#}
-{#    <title>咚咚锵-首页</title>#}
-{#    <link rel="stylesheet" type="text/css" href="css/reset.css ">#}
-{#    <link rel="stylesheet" type="text/css" href="css/main.css ">#}
-{##}
-{#	<script type="text/javascript" src= "js/jquery-1.12.4.min.js "></script>#}
-{#	<script type="text/javascript" src= "js/jquery-ui.min.js "></script>#}
-{#	<script type="text/javascript" src= "js/slide.js "></script>#}
-{#</head>#}
-{#<body>#}
 {% extends 'base.html' %}
 {% load static %}   {# 导入静态文件 #}
 {% block title %}咚咚锵-欢迎您！{% endblock title %}   {# 更改浏览器地址栏的信息 #}
@@ -24,8 +5,11 @@
 	<script type="text/javascript" src= "js/jquery-1.12.4.min.js "></script>
 	<script type="text/javascript" src= "js/jquery-ui.min.js "></script>
 	<script type="text/javascript" src= "js/slide.js "></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 {% endblock topfiles %}
-{% block body %}    <div class="fs">
+{% block body %}
+    <div class="fs">
         <div class="jd_container jd_fs_container grid_c1 fs_inner">
             <!-- 左侧导航栏 -->
             <div class="fs_col1">
@@ -335,58 +319,43 @@
                     </div>
                     <!-- 中间广告及推荐模块 -->
                     <div class="core_mod_container">
-                        <!-- 广告图 -->
-{#                        <div id="J_focus" class="focus">#}
-{#                            <img src="{% static 'images/logo.png' %}" alt="广告图" width="700" height="300">#}
-{#                        </div>#}
-                        <!-- 补贴及秒杀模块 -->
-                        <div id="J_biz_mod" class="biz_mod_container">
-                            <div class="subsidy">
-                                <h3>国家补贴 × 百亿补贴</h3>
-                                <div class="product">
-                                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品1" width="100" height="100">
-                                    <p>已补10元</p>
-                                    <p>¥39.9</p>
-                                </div>
-                                <div class="product">
-                                    <img src="{% static 'images/goods/goods008.jpg' %}" alt="商品2" width="100" height="100">
-                                    <p>已补31.33元</p>
-                                    <p>¥125.89</p>
-                                </div>
-                            </div>
-                            <div class="seckill">
-                                <h3>京东秒杀</h3>
-                                <span>1元抢大牌美妆</span>
-                                <div class="product">
-                                    <img src="{% static 'images/goods/goods005.jpg' %}" alt="商品3" width="100" height="100">
-                                    <p>¥143.64</p>
-                                </div>
-                                <div class="product">
-                                    <img src="{% static 'images/goods/goods017.jpg' %}" alt="商品4" width="100" height="100">
-                                    <p>¥108</p>
-                                </div>
-                            </div>
+                        <!-- 自动轮播广告图（插入在 fs_col2 中的 core_mod_container 顶部） -->
+                        <div id="J_focus" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+                          <div class="carousel-inner">
+                            {% for banner in goods_banners %}
+                              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <a href="{% url 'goods:detail' banner.sku.id %}">
+                                  <img src="{{ banner.image.url }}" alt="{{ banner.sku.name }}" class="d-block w-100" style="height:300px;">
+                                </a>
+                              </div>
+                            {% endfor %}
+                          </div>
+                          <!-- 导航箭头 -->
+                          <button class="carousel-control-prev" type="button" data-bs-target="#J_focus" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">上一张</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#J_focus" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">下一张</span>
+                          </button>
                         </div>
                         <!-- 其他推荐模块 -->
                         <div class="service_container fs_mod">
                             <div class="module">
+                                <h3>百亿补贴</h3>
+                                <img src="{% static 'images/promotions/9.9.jpg' %}" alt="百亿补贴商品" width="180" height="110">
+                                <p>补贴后价格：¥39.9</p>
+                            </div>
+                            <div class="module">
+                                <h3>咚咚锵秒杀</h3>
+                                <img src="{% static 'images/promotions/9.9.jpg' %}" alt="咚咚锵秒杀商品" width="180" height="110">
+                                <p>秒杀价：¥19.9</p>
+                            </div>
+                            <div class="module">
                                 <h3>9.9包邮</h3>
-                                <img src="{% static 'images/promotions/9.9.jpg' %}" alt="商品5" width="180" height="110">
-                                <p>¥5.9</p>
-                            </div>
-                            <div class="module">
-                                <h3>京东直播</h3>
-                                <img src="{% static 'images/promotions/live.png' %}" alt="直播图" width="180" height="110">
-                                <p>主播精选</p>
-                            </div>
-                            <div class="module">
-                                <h3>百宝箱</h3>
-                                <div class="icon">天天领好礼</div>
-                                <div class="icon">京豆</div>
-                                <div class="icon">充值中心</div>
-                                <div class="icon">国家补贴</div>
-                                <div class="icon">企业计划购</div>
-                                <div class="icon">酒店</div>
+                                <img src="{% static 'images/promotions/9.9.jpg' %}" alt="9.9包邮商品" width="180" height="110">
+                                <p>仅需：¥9.9 包邮</p>
                             </div>
                         </div>
                     </div>
@@ -395,18 +364,24 @@
             <!-- 右侧用户及快捷入口区域 -->
             <div id="J_fs_col3" class="fs_col3">
                 <div id="J_user" class="J_user user">
-                    <img src="{% static 'images/icons/head.png' %}" alt="头像" class="avatar">
+                    <a href="{% url 'user:user' %}">
+                                <img src="{% static 'images/icons/head.png' %}" alt="头像" class="avatar">
+                            </a>
                     <span class="username">jd_byy6103imsfcy5</span>
                     <div class="account-ops">
-                        <a href="{% url 'user:login' %}">切换账号</a> | <a href="{% url 'user:login' %}">退出</a>
+                        <a href="{% url 'user:login' %}">切换账号</a> | <a href="{% url 'user:logout' %}">退出</a>
                     </div>
                     <div class="user-records">
                         <div class="record-item">
-                            <img src="{% static 'images/icons/history.png' %}" alt="浏览记录图标">
+                            <a href="{% url 'user:history' %}">
+                                <img src="{% static 'images/icons/history.png' %}" alt="浏览记录图标">
+                            </a>
                             <p>浏览记录</p>
                         </div>
                         <div class="record-item">
-                            <img src="{% static 'images/icons/collection.png' %}" alt="收藏图标">
+                            <a href="{% url 'cart:show' %}">
+                                <img src="{% static 'images/icons/collection.png' %}" alt="收藏图标">
+                            </a>
                             <p>商品收藏</p>
                         </div>
                         <div class="record-item">
@@ -452,253 +427,6 @@
             </div>
         </div>
     </div>
-    {# 商品界面  #}
-    <!-- 商品卡片示例，可根据实际数据循环生成多个 -->
-{#    <ul class="product-container">#}
-{#        <li class="product-item">#}
-{#            <a class="product-lk" href="#" target="_blank" title="【官方旗舰店】星火英语考研英语词汇单词书2026考研词汇巧记...">#}
-{#                <div class="product-img">#}
-{#                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品1" style="height: 240px; width: 240px;">#}
-{#                </div>#}
-{#                <div class="product-info">#}
-{#                    <p class="product-info-name">#}
-{#                        <span class="product-info-name-tags"></span>#}
-{#                        【官方旗舰店】星火英语考研英语词汇单词书2026考研词汇巧记...#}
-{#                    </p>#}
-{#                    <div class="product-tail-tags"></div>#}
-{#                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">#}
-{#                        <div class="mod_price">#}
-{#                            <i>¥</i>#}
-{#                            <span class="product-info-price-txt">209.80</span>#}
-{#                        </div>#}
-{#                        <a class="product-info-add_cart" id="product-add-cart-id-1" target="_blank" href="javascript:void(0)"></a>#}
-{#                        <span class="product-extra-price-title">到手价</span>#}
-{#                        <span class="product-extra-price">#}
-{#                            <span title="original-price" class="product-extra-price-txt"></span>#}
-{#                        </span>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="product-item-hover">#}
-{#                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>#}
-{#                </div>#}
-{#                <div class="hover-border"></div>#}
-{#            </a>#}
-{#        </li>#}
-{#        <li class="product-item">#}
-{#            <a class="product-lk" href="#" target="_blank" title="芙清FulQun芙清 医用促愈功能性敷料凝胶抗菌皮炎痘印痤疮保湿...">#}
-{#                <div class="product-img">#}
-{#                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品2" style="height: 240px; width: 240px;">#}
-{#                </div>#}
-{#                <div class="product-info">#}
-{#                    <p class="product-info-name">#}
-{#                        <span class="product-info-name-tags"></span>#}
-{#                        芙清FulQun芙清 医用促愈功能性敷料凝胶抗菌皮炎痘印痤疮保湿...#}
-{#                    </p>#}
-{#                    <div class="product-tail-tags"></div>#}
-{#                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">#}
-{#                        <div class="mod_price">#}
-{#                            <i>¥</i>#}
-{#                            <span class="product-info-price-txt">458.00</span>#}
-{#                        </div>#}
-{#                        <a class="product-info-add_cart" id="product-add-cart-id-2" target="_blank" href="javascript:void(0)"></a>#}
-{#                        <span class="product-extra-price-title">到手价</span>#}
-{#                        <span class="product-extra-price">#}
-{#                            <span title="original-price" class="product-extra-price-txt"></span>#}
-{#                        </span>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="product-item-hover">#}
-{#                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>#}
-{#                </div>#}
-{#                <div class="hover-border"></div>#}
-{#            </a>#}
-{#        </li>#}
-{#        <li class="product-item">#}
-{#            <a class="product-lk" href="#" target="_blank" title="Herschel加拿大赫行【黑标系列】Novel™旅行包手提健身...">#}
-{#                <div class="product-img">#}
-{#                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品3" style="height: 240px; width: 240px;">#}
-{#                </div>#}
-{#                <div class="product-info">#}
-{#                    <p class="product-info-name">#}
-{#                        <span class="product-info-name-tags"></span>#}
-{#                        Herschel加拿大赫行【黑标系列】Novel™旅行包手提健身...#}
-{#                    </p>#}
-{#                    <div class="product-tail-tags"></div>#}
-{#                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">#}
-{#                        <div class="mod_price">#}
-{#                            <i>¥</i>#}
-{#                            <span class="product-info-price-txt">39.90</span>#}
-{#                        </div>#}
-{#                        <a class="product-info-add_cart" id="product-add-cart-id-3" target="_blank" href="javascript:void(0)"></a>#}
-{#                        <span class="product-extra-price-title">销量300万+</span>#}
-{#                        <span class="product-extra-price">#}
-{#                            <span title="original-price" class="product-extra-price-txt"></span>#}
-{#                        </span>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="product-item-hover">#}
-{#                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>#}
-{#                </div>#}
-{#                <div class="hover-border"></div>#}
-{#            </a>#}
-{#        </li>#}
-{#        <li class="product-item">#}
-{#            <a class="product-lk" href="#" target="_blank" title="颐莲张凌赫代言玻尿酸补水喷雾300ml*2瓶保湿爽肤水E">#}
-{#                <div class="product-img">#}
-{#                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品4" style="height: 240px; width: 240px;">#}
-{#                </div>#}
-{#                <div class="product-info">#}
-{#                    <p class="product-info-name">#}
-{#                        <span class="product-info-name-tags"></span>#}
-{#                        颐莲张凌赫代言玻尿酸补水喷雾300ml*2瓶保湿爽肤水E#}
-{#                    </p>#}
-{#                    <div class="product-tail-tags"></div>#}
-{#                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">#}
-{#                        <div class="mod_price">#}
-{#                            <i>¥</i>#}
-{#                            <span class="product-info-price-txt">343.44</span>#}
-{#                        </div>#}
-{#                        <a class="product-info-add_cart" id="product-add-cart-id-4" target="_blank" href="javascript:void(0)"></a>#}
-{#                        <span class="product-extra-price-title">到手价</span>#}
-{#                        <span class="product-extra-price">#}
-{#                            <span title="636.00" class="product-extra-price-txt"></span>#}
-{#                        </span>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="product-item-hover">#}
-{#                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>#}
-{#                </div>#}
-{#                <div class="hover-border"></div>#}
-{#            </a>#}
-{#        </li>#}
-{#        <li class="product-item">#}
-{#            <a class="product-lk" href="#" target="_blank" title="【自营】1号会员店玻尿酸面膜补水保湿润肤透明质酸钠提亮肤色男...">#}
-{#                <div class="product-img">#}
-{#                    <img src="{% static 'images/goods/goods001.jpg' %}" alt="商品5" style="height: 240px; width: 240px;">#}
-{#                </div>#}
-{#                <div class="product-info">#}
-{#                    <p class="product-info-name">#}
-{#                        <span class="product-info-name-tags"></span>#}
-{#                        【自营】1号会员店玻尿酸面膜补水保湿润肤透明质酸钠提亮肤色男...#}
-{#                    </p>#}
-{#                    <div class="product-tail-tags"></div>#}
-{#                    <div class="product-info-price product-info-price-plus product-info-price-newcomer">#}
-{#                        <div class="mod_price">#}
-{#                            <i>¥</i>#}
-{#                            <span class="product-info-price-txt">69.00</span>#}
-{#                        </div>#}
-{#                        <a class="product-info-add_cart" id="product-add-cart-id-5" target="_blank" href="javascript:void(0)"></a>#}
-{#                        <span class="product-extra-price-title">到手价</span>#}
-{#                        <span class="product-extra-price">#}
-{#                            <span title="original-price" class="product-extra-price-txt"></span>#}
-{#                        </span>#}
-{#                    </div>#}
-{#                    <p class="product-sales">销量80万+</p>#}
-{#                </div>#}
-{#                <div class="product-item-hover">#}
-{#                    <div class="product-item-delete" clstag="h|keycount||feed|01#pd_009-b" title="不喜欢"></div>#}
-{#                </div>#}
-{#                <div class="hover-border"></div>#}
-{#            </a>#}
-{#        </li>#}
-{#    第二列#}
-{#    <li class="product-item">#}
-{#        <a class="product-lk" href="#" target="_blank" title="Apple iPad 2022款 10.9英寸 平板电脑">#}
-{#            <div class="product-img">#}
-{#                <img src="{% static 'images/goods/goods006.jpg' %}" alt="商品6" style="height: 240px; width: 240px;">#}
-{#            </div>#}
-{#            <div class="product-info">#}
-{#                <p class="product-info-name">Apple iPad 2022款 10.9英寸 平板电脑</p>#}
-{#                <div class="product-info-price">#}
-{#                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">3199.00</span></div>#}
-{#                    <a class="product-info-add_cart" href="javascript:void(0)"></a>#}
-{#                    <span class="product-extra-price-title">优惠价</span>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="product-item-hover">#}
-{#                <div class="product-item-delete" title="不喜欢"></div>#}
-{#            </div>#}
-{#            <div class="hover-border"></div>#}
-{#        </a>#}
-{#    </li>#}
-{#    <li class="product-item">#}
-{#        <a class="product-lk" href="#" target="_blank" title="戴尔DELL 灵越14轻薄笔记本电脑">#}
-{#            <div class="product-img">#}
-{#                <img src="{% static 'images/goods/goods007.jpg' %}" alt="商品7" style="height: 240px; width: 240px;">#}
-{#            </div>#}
-{#            <div class="product-info">#}
-{#                <p class="product-info-name">戴尔DELL 灵越14轻薄笔记本电脑</p>#}
-{#                <div class="product-info-price">#}
-{#                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">4399.00</span></div>#}
-{#                    <a class="product-info-add_cart" href="javascript:void(0)"></a>#}
-{#                    <span class="product-extra-price-title">直降500</span>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="product-item-hover">#}
-{#                <div class="product-item-delete" title="不喜欢"></div>#}
-{#            </div>#}
-{#            <div class="hover-border"></div>#}
-{#        </a>#}
-{#    </li>#}
-{#    <li class="product-item">#}
-{#        <a class="product-lk" href="#" target="_blank" title="NIKE耐克 Air Max男运动鞋">#}
-{#            <div class="product-img">#}
-{#                <img src="{% static 'images/goods/goods008.jpg' %}" alt="商品8" style="height: 240px; width: 240px;">#}
-{#            </div>#}
-{#            <div class="product-info">#}
-{#                <p class="product-info-name">NIKE耐克 Air Max男运动鞋</p>#}
-{#                <div class="product-info-price">#}
-{#                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">759.00</span></div>#}
-{#                    <a class="product-info-add_cart" href="javascript:void(0)"></a>#}
-{#                    <span class="product-extra-price-title">限时抢购</span>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="product-item-hover">#}
-{#                <div class="product-item-delete" title="不喜欢"></div>#}
-{#            </div>#}
-{#            <div class="hover-border"></div>#}
-{#        </a>#}
-{#    </li>#}
-{#    <li class="product-item">#}
-{#        <a class="product-lk" href="#" target="_blank" title="百草味 坚果零食大礼包 节日送礼">#}
-{#            <div class="product-img">#}
-{#                <img src="{% static 'images/goods/goods009.jpg' %}" alt="商品9" style="height: 240px; width: 240px;">#}
-{#            </div>#}
-{#            <div class="product-info">#}
-{#                <p class="product-info-name">百草味 坚果零食大礼包 节日送礼</p>#}
-{#                <div class="product-info-price">#}
-{#                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">129.90</span></div>#}
-{#                    <a class="product-info-add_cart" href="javascript:void(0)"></a>#}
-{#                    <span class="product-extra-price-title">热销推荐</span>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="product-item-hover">#}
-{#                <div class="product-item-delete" title="不喜欢"></div>#}
-{#            </div>#}
-{#            <div class="hover-border"></div>#}
-{#        </a>#}
-{#    </li>#}
-{#    <li class="product-item">#}
-{#        <a class="product-lk" href="#" target="_blank" title="飞利浦电动牙刷 成人智能洁齿">#}
-{#            <div class="product-img">#}
-{#                <img src="{% static 'images/goods/goods010.jpg' %}" alt="商品10" style="height: 240px; width: 240px;">#}
-{#            </div>#}
-{#            <div class="product-info">#}
-{#                <p class="product-info-name">飞利浦电动牙刷 成人智能洁齿</p>#}
-{#                <div class="product-info-price">#}
-{#                    <div class="mod_price"><i>¥</i><span class="product-info-price-txt">239.00</span></div>#}
-{#                    <a class="product-info-add_cart" href="javascript:void(0)"></a>#}
-{#                    <span class="product-extra-price-title">赠刷头</span>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="product-item-hover">#}
-{#                <div class="product-item-delete" title="不喜欢"></div>#}
-{#            </div>#}
-{#            <div class="hover-border"></div>#}
-{#        </a>#}
-{#    </li>#}
-{##}
-{#    </ul>#}
         <ul class="product-container">
             {% for sku in goods_skus %}
             <li class="product-item">
@@ -724,19 +452,7 @@
             {% endfor %}
         </ul>
 
-    {#	<div class="footer">#}
-{#		<div class="foot_link">#}
-{#			<a href="#">关于我们</a>#}
-{#			<span>|</span>#}
-{#			<a href="#">联系我们</a>#}
-{#			<span>|</span>#}
-{#			<a href="#">招聘人才</a>#}
-{#			<span>|</span>#}
-{#			<a href="#">友情链接</a>#}
-{#		</div>#}
-{#		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>#}
-{#		<p>电话：010-****888    京ICP备*******8号</p>#}
-{#	</div>#}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  {# 引入 Bootstrap JS 文件 #}
 	<script type="text/javascript" src= "js/slideshow.js"></script>
 	<script type="text/javascript">
 		BCSlideshow('focuspic');
@@ -754,6 +470,7 @@
 			window.location.href = 'list.html';
 		}
 	</script>
+
     <script>
       // 左侧导航栏弹出菜单控制
       document.addEventListener('DOMContentLoaded', function () {
@@ -769,6 +486,7 @@
         });
       });
     </script>
+
     <script>
     // 商品卡片，可以在这里添加一些交互增强的JavaScript代码，例如点击事件等
     const productCards = document.querySelectorAll('.product-card');
@@ -778,7 +496,9 @@
             console.log('商品卡片被点击');
         });
     });
-</script>
+    </script>
+
+
 {% endblock body %}
 {#</body>#}
 {#</html>#}

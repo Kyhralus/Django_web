@@ -2,7 +2,8 @@
 # apps/ddq_user/urls.py
 from django.urls import path, re_path
 # from django.contrib.auth.decorators import login_required
-from .views import RegisterView, ActiveView, LoginView, LogoutView, UserInfoView, UserOrderView, UserAddressView
+from .views import RegisterView, ActiveView, LoginView, LogoutView, UserInfoView, UserHistoryView, UserOrderView, UserAddressView
+from .views import UserBalanceView
 '''
 导入django模块中的login_required方法
 验证用户是否是登录状态，也就是获取session的值
@@ -24,8 +25,10 @@ urlpatterns = [
     # url(r'^address$', login_required(AddressView.as_view()), name='address'), # 用户中心-地址页
 
     re_path(r'^$', UserInfoView.as_view(), name='user'),  # 用户中心-信息页
-    re_path(r'^order$', UserOrderView.as_view(), name='order'),  # 用户中心-订单页
+    re_path(r"^order/(?P<page>\d+)$", UserOrderView.as_view(), name='order'),  # 用户中心-订单页
     re_path(r'^address$', UserAddressView.as_view(), name='address'),  # 用户中心-地址页
+    path("history", UserHistoryView.as_view(), name="history"), # 用户中心-浏览记录
+    path('balance', UserBalanceView.as_view(), name='balance'), # 余额充值
 ]
 
 

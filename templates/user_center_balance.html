@@ -1,0 +1,14 @@
+{% extends 'user_center_info.html' %}
+{% load static %}
+{% block right_content %}
+    <h2>我的余额</h2>
+    <div class="user-balance">
+        <h3>账户余额</h3>
+        <p><strong>当前余额：</strong>¥ {{ balance.amount|default:"0.00" }}</p>
+        <form action="{% url 'user:balance' %}" method="post" class="recharge-form">
+            {% csrf_token %}
+            <input type="number" name="amount" step="0.01" min="0.01" placeholder="请输入充值金额">
+            <button type="submit">立即充值</button>
+        </form>
+    </div>
+{% endblock right_content %}

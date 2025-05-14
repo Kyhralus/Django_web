@@ -9,11 +9,13 @@ admin.site.register(GoodsSKU)
 # 注册商品类型
 admin.site.register(Goods)
 
-admin.site.register(IndexGoodsBanner)
 
-admin.site.register(IndexPromotionBanner)
 
-admin.site.register(IndexTypeGoodsBanner)
+
+# 不用
+# admin.site.register(IndexGoodsBanner)
+# admin.site.register(IndexPromotionBanner)
+# admin.site.register(IndexTypeGoodsBanner)
 
 
 #

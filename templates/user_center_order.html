@@ -1,107 +1,119 @@
-{% extends 'base_user_center.html' %}
-{% load static %}   {# 导入静态文件 #}
+{% extends 'user_center_info.html' %}
+{% load static %}
+{% block title %}咚咚锵-用户中心-订单管理{% endblock title %}
+{% block page_title %}用户中心 - 订单管理{% endblock page_title %}
 {% block right_content %}
-<div class="right_content clearfix">
-				{% csrf_token %}
-				<h3 class="common_title2">全部订单</h3>
-				{% for order in order_page %}
-				<ul class="order_list_th w978 clearfix">
-					<li class="col01">{{ order.create_time }}</li>
-					<li class="col02">订单号：{{ order.order_id }}</li>
-					<li class="col02 stress">{{ order.status_name }}</li>
-				</ul>
+<div class="right_content">
+    <h3 class="common_title2">我的订单</h3>
 
-				<table class="order_list_table w980">
-					<tbody>
-						<tr>
-							<td width="55%">
-								{% for order_sku in order.order_skus %}
-								<ul class="order_goods_list clearfix">					
-									<li class="col01"><img src="{{ order_sku.sku.image.url }}"></li>
-									<li class="col02">{{ order_sku.sku.name }}<em>{{ order_sku.sku.price }}元/{{ order_sku.sku.unite }}</em></li>
-									<li class="col03">{{ order_sku.count }}</li>
-									<li class="col04">{{ order_sku.amount }}元</li>
-								</ul>
-								{% endfor %}
-							</td>
-							<td width="15%">{{ order.total_price|add:order.transit_price }}(含运费:{{ order.transit_price }})元</td>
-							<td width="15%">{{ order.status_name }}</td>
-							<td width="15%"><a href="#" order_id="{{ order.order_id }}" status="{{ order.order_status }}" class="oper_btn">去付款</a></td>
-						</tr>
-					</tbody>
-				</table>
-				{% endfor %}
-				<div class="pagenation">
-					{% if order_page.has_previous_page %}
-					<a href="{% url 'user:order' order_page.previous_page_number %}"><上一页</a>
-					{% endif %}
-					{% for pindex in pages %}
-						{% if pindex == order_page.number %}
-					<a href="{% url 'user:order' pindex %}" class="active">{{ pindex }}</a>
-						{% else %}
-					<a href="{% url 'user:order' pindex %}">{{ pindex }}</a>
-						{% endif %}
-					{% endfor %}
-					{% if order_page.has_next_page %}
-					<a href="{% url 'user:order' order_page.next_page_number %}">下一页></a>
-					{% endif %}
-				</div>
-		</div>
+    <!-- 显示消息提示 -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- 订单筛选 -->
+    <div class="order_filter">
+        <a href="#" class="filter_btn active">全部订单</a>
+        <a href="#" class="filter_btn">待支付</a>
+        <a href="#" class="filter_btn">待发货</a>
+        <a href="#" class="filter_btn">待收货</a>
+        <a href="#" class="filter_btn">待评价</a>
+    </div>
+
+    <!-- 订单列表 -->
+    {% for order in order_page %}
+    <div class="order_card">
+        <!-- 订单头部 -->
+        <div class="order_header">
+            <span class="order_id">订单号：{{ order.order_id }}</span>
+            <span class="order_time">{{ order.create_time }}</span>
+            <span class="order_status">{{ order.status_name }}</span>
+        </div>
+
+        <!-- 订单商品 -->
+        <div class="order_items">
+            {% for order_sku in order.order_skus %}
+            <div class="order_item">
+                <div class="item_img">
+                    <img src="{{ order_sku.sku.image.url }}" alt="{{ order_sku.sku.name }}">
+                </div>
+                <div class="item_info">
+                    <h4 class="item_name">{{ order_sku.sku.name }}</h4>
+                    <div class="item_attr">
+                        <span class="item_spec">{{ order_sku.sku.unite }}</span>
+                        <span class="item_price">¥{{ order_sku.sku.price }}</span>
+                    </div>
+                </div>
+                <div class="item_count">x{{ order_sku.count }}</div>
+                <div class="item_total">¥{{ order_sku.amount }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- 订单底部 -->
+        <div class="order_footer">
+            <div class="order_total">
+                总计：<span class="total_price">¥{{ order.total_price|add:order.transit_price }}</span>
+                <span class="shipping_fee">(含运费:¥{{ order.transit_price }})</span>
+            </div>
+            <div class="order_actions">
+                {% if order.order_status == 1 %}
+                {% if order.order_id %}
+                <form action="{% url 'order:pay_order' order.order_id %}" method="post">
+                    {% csrf_token %}
+                    <button class="action_btn pay_btn">立即支付</button>
+                </form>
+                {% else %}
+                <button class="action_btn pay_btn" disabled>无法支付，订单ID为空</button>
+                {% endif %}
+                {% elif order.order_status == 4 %}
+                <button class="action_btn comment_btn" onclick="commentOrder('{{ order.order_id }}')">去评价</button>
+                {% elif order.order_status == 5 %}
+                <button class="action_btn completed_btn" disabled>已完成</button>
+                {% else %}
+                <button class="action_btn view_btn">查看详情</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- 分页 -->
+    <div class="pagination">
+        {% if order_page.has_previous_page %}
+        <a href="{% url 'user:order' order_page.previous_page_number %}" class="page_btn">&lt; 上一页</a>
+        {% else %}
+        <span class="page_btn disabled">&lt; 上一页</span>
+        {% endif %}
+
+        {% for pindex in pages %}
+            {% if pindex == order_page.number %}
+            <span class="page_btn current">{{ pindex }}</span>
+            {% else %}
+            <a href="{% url 'user:order' pindex %}" class="page_btn">{{ pindex }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if order_page.has_next_page %}
+        <a href="{% url 'user:order' order_page.next_page_number %}" class="page_btn">下一页 &gt;</a>
+        {% else %}
+        <span class="page_btn disabled">下一页 &gt;</span>
+        {% endif %}
+    </div>
+</div>
 {% endblock right_content %}
+
 {% block bottomfiles %}
-	<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
-	<script>
-		$('.oper_btn').each(function () {
-        // 获取支付状态
-        status = $(this).attr('status')
-        if (status == 1){
-            $(this).text('去支付')
-        }
-        else if (status == 4){
-            $(this).text('去评价')
-        }
-        else if (status == 5){
-            $(this).text('已完成')
-        }
-    	})
-		$('.oper_btn').click(function() {
-			// 获取status
-			var status = $(this).attr('status')
-			var order_id = $(this).attr('order_id')
-			if (status == 1){
-				// 进行支付
-				// 获取订单id
-				var csrf = $('input[name="csrfmiddlewaretoken"]').val()
-				// 组织参数
-				params = {'order_id': order_id, 'csrfmiddlewaretoken': csrf}
-				// 发起ajax post请求，访问/order/pay 传递参数order_id
-				$.post('/order/pay', params, function(data) {
-						if (data.res == 3) {
-							// 引导用户到支付页面
-							window.open(data.pay_url)
-							// 浏览器访问/order/query,获取支付交易的结果
-							// ajax post 传递参数 order_id
-							$.post('/order/check', params, function(data){
-								if (data.res == 3) {
-								    alert('支付成功')
-									location.reload()
-								}
-								else {
-								    alert(data.errmsg)
-								}
-							})
-						}
-						else {
-							alert(data.errmsg)
-						}
-				})
-			}
-			else if (status == 4){
-				// 其他情况
-				// 跳转到其他页面
-				alert(order_id)
-				location.href = '/order/comment/' + order_id
-			}
-		})
-	</script>
+<script>
+    // 评价订单函数
+    function commentOrder(orderId) {
+        location.href = '/order/comment/' + orderId;
+    }
+</script>
 {% endblock bottomfiles %}

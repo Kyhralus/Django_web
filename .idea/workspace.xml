@@ -4,45 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f922b5c8-5456-48d4-b379-6fdaa8448af9" name="Changes" comment="初步实现首页界面，但细节未优化">
-      <change afterPath="$PROJECT_DIR$/apps/ddq_goods/search_indexes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/goods/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/goods/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/goods/ddq.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/goods/galaguo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/goods/galaguo_UFKVroo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/goods/galaguo_l9kYjg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/goods/galaguo_lMScQVs.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/goods/galaguo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/goods/iphone16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/goods/iphone16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/goods/thinkbook14+.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/slogan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/indexes/ddq_goods/goodssku_text.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/search1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DongDongQiang/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DongDongQiang/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DongDongQiang/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DongDongQiang/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ddq_goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ddq_goods/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/3nav.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/jd.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/my/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/t.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base_no_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_no_cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/z_test/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/z_test/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/z_test/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/z_test/test.html" afterDir="false" />
-    </list>
+    <list default="true" id="f922b5c8-5456-48d4-b379-6fdaa8448af9" name="Changes" comment="功能基本实现，等待整理" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,10 +16,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -113,14 +75,14 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/JetBrains/PycharmProjects/DongDongQiang/static",
+    "last_opened_file_path": "D:/JetBrains/PycharmProjects/DongDongQiang/static/images",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "editing.templates",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -132,17 +94,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static" />
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images\goods" />
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\templates" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images" />
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images\promotions" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\templates" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\z_test\images" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images\goods" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\media" />
+      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\media\goods" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images\goods" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\static\images\" />
       <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\apps" />
-      <recent name="D:\JetBrains\PycharmProjects\DongDongQiang\Buyers\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Django Server.DongDongQiang">
@@ -232,6 +195,9 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\adminstrator\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f922b5c8-5456-48d4-b379-6fdaa8448af9" name="Changes" comment="" />
@@ -255,7 +221,12 @@
       <workItem from="1746706577070" duration="11282000" />
       <workItem from="1746750874400" duration="22602000" />
       <workItem from="1746778814424" duration="1696000" />
-      <workItem from="1746844479123" duration="3993000" />
+      <workItem from="1746844479123" duration="10285000" />
+      <workItem from="1746877998672" duration="5000" />
+      <workItem from="1746939923929" duration="13631000" />
+      <workItem from="1747030280044" duration="7985000" />
+      <workItem from="1747123141212" duration="7949000" />
+      <workItem from="1747187789936" duration="28841000" />
     </task>
     <task id="LOCAL-00001" summary="更改版本">
       <option name="closed" value="true" />
@@ -433,7 +404,31 @@
       <option name="project" value="LOCAL" />
       <updated>1746770324141</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="添加media文件，实现主页点击商品跳转详情页">
+      <option name="closed" value="true" />
+      <created>1746849420858</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1746849420858</updated>
+    </task>
+    <task id="LOCAL-00024" summary="功能基本实现，等待整理">
+      <option name="closed" value="true" />
+      <created>1747220971265</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1747220971265</updated>
+    </task>
+    <task id="LOCAL-00025" summary="功能基本实现，等待整理">
+      <option name="closed" value="true" />
+      <created>1747221106387</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1747221106387</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +485,9 @@
     <MESSAGE value="完成教程第二节：实现用户注册、登录界面的后端初步设计" />
     <MESSAGE value="完成教程第三节：实现用户中心的跳转、地址的设置和数据库的存储；但未实现分布式文件系统。" />
     <MESSAGE value="初步实现首页界面，但细节未优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="初步实现首页界面，但细节未优化" />
+    <MESSAGE value="添加media文件，实现主页点击商品跳转详情页" />
+    <MESSAGE value="功能基本实现，等待整理" />
+    <option name="LAST_COMMIT_MESSAGE" value="功能基本实现，等待整理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

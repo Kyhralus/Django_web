@@ -1,22 +1,74 @@
 # 版本和依赖
 - python 3.11.7
 - django 5.2
-    - django-extensions
-- tinymce
+    - django-extensions # 用于看urls映射关系等
+    - django-haystack # 全文检索框架，用于搜索商品
+    - django-redis # 缓存，用于存储历史浏览记录
+    - django-tinymce # 富文本编辑，商品详情编写（不实用）
+    - django-bootstrap # 用于bootstrap框架
 - cffi-1.17.1 
 - cryptography-44.0.3 
-- pycparser-2.22
-- Pillow 11.2.1
+- pycparser-2.22 
+- Pillow 11.2.1 # 对导入图片操作
 - itsdangerous-2.2.0 # 注册激活邮件token
-- django-redis-5.4.0
-以下待使用...
-- celery-5.5.2 # 异步任务---发送邮件 
-- eventlet-0.39.1 # windows下配合celery使用
-- redis-6.0.0 # redis数据库，作为celery的消息中间人
+- pymysql-1.1.1 # 数据库
+- redis-6.0.0 # redis数据库，主要用于存储历史浏览记录
+- redis-py-5.4.0 # 用于redis数据库
 
-要加？
-- crispy_forms
-- crispy-bootstrap5
+
+
+- django-redis-5.4.0
+- redis-6.0.0 # redis数据库，主要用于存储历史浏览记录
+
+amqp==5.3.1
+asgiref==3.8.1
+billiard==4.2.1
+cffi==1.17.1
+click==8.1.8
+click-didyoumean==0.3.1
+click-plugins==1.1.1
+click-repl==0.3.0
+colorama==0.4.6
+cryptography==44.0.3
+Django==5.2
+django-bootstrap==0.2.4
+django-haystack==3.3.0
+django-redis==5.4.0
+django-tinymce==4.1.0
+dnspython==2.7.0
+eventlet==0.39.1
+greenlet==3.2.1
+itsdangerous==2.2.0
+jieba==0.42.1
+kombu==5.5.3
+packaging==25.0
+pillow==11.2.1
+prompt_toolkit==3.0.51
+pyasn1==0.6.1
+pycparser==2.22
+pycryptodome==3.22.0
+PyMySQL==1.1.1
+python-dateutil==2.9.0.post0
+redis==6.0.0
+rsa==4.9.1
+six==1.17.0
+sqlparse==0.5.3
+tzdata==2025.2
+vine==5.1.0
+wcwidth==0.2.13
+Whoosh==2.7.4
+
+------------------------------------------
+参考资料：
+https://github.com/Eeyhan/onlinestudy
+https://github.com/NothinkingGao/django-eshop
+https://github.com/Pad0y/Django2_dailyfresh
+https://github.com/geeeeeeeek/python_shop
+https://blog.csdn.net/qq_41782425/article/details/88790662
+https://github.com/pretendwang/Django-dianshang-proje
+https://blog.csdn.net/qq_41782425/article/details/88921322
+https://blog.csdn.net/geek_xiong/article/details/90324013
+https://www.cnblogs.com/zhangyh-blog/p/15239305.html
 ------------------------------------------
 1. 激活虚拟环境
 ```bash
