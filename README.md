@@ -183,103 +183,6 @@ mtv-svc
 app创建过程
 django命令
 ------------------------------------------
-# html：HyperText Markup Language
-https://blog.csdn.net/mr_yuanshen/article/details/147668918
-1. 知识点
-
-[//]: # (html中字母大小写并不会影响代码效果)
-
-[//]: # (<html>: 定义HTML文档的根元素)
-
-[//]: # (<head>: 包含文档的元信息，如字符编码、页面标题、CSS 引用等)
-
-[//]: # (<title>: 文档的标题)
-
-[//]: # (<body>: 文档的主体内容:包含可见的页面内容（文本、图片、链接等）)
-
-[//]: # (<div>:divsion&#40;分割、分区&#41;：作为块级容器，用于组织和布局页面内容)
-
-[//]: # (<span>: &#40;跨度&#41;作为行内容器，用于在同一行内显示文本或其他元素)
-
-[//]: # (<a>:archor&#40;锚点&#41;：用于创建超链接)
-
-[//]: # (<img>:image&#40;图像&#41;：用于嵌入图像)
-
-[//]: # (<ul>:unordered list&#40;无序列表&#41;：用于创建无序列表)
-
-[//]: # (<ol>:ordered list&#40;有序列表&#41;：用于创建有序列表)
-
-[//]: # (<li>:list item&#40;列表项&#41;：用于表示无序列表中的项目)
-
-[//]: # (<p>: paragraph&#40;段落&#41;：用于表示文本段落)
-
-[//]: # (<h1> - <h6>: Heading&#40;标题&#41;：用于表示不同级别的标题)
-
-[//]: # (<br>:break&#40;换行&#41;：用于在文本中插入换行符)
-
-[//]: # (<hr>:horizontal rule&#40;水平线&#41;：用于插入水平线)
-
-[//]: # (<form>:form&#40;表单&#41;：用于创建html表单,用于用户输入)
-
-[//]: # (<input>:input&#40;输入&#41;：用于创建表单输入字段)
-
-[//]: # (<select>:select&#40;选择&#41;：用于创建下拉框)
-
-[//]: # (<option>:option&#40;选项&#41;：用于定义下拉框中的选项)
-
-[//]: # (<button>:button&#40;按钮&#41;：用于创建按钮)
-
-[//]: # (<table>:table&#40;表格&#41;：用于创建表格)
-
-[//]: # (<tr>:table row&#40;表格行&#41;：用于表示表格中的行)
-
-[//]: # (<td>:table data&#40;表格数据&#41;：用于表示表格中的单元格)
-
-[//]: # (<th>:table header&#40;表格头&#41;：用于表示表格中的表头单元格)
-
-[//]: # (<textarea>:textarea&#40;文本区域&#41;：用于创建多行文本输入框)
-
-[//]: # (属性缩写：)
-
-[//]: # (id:identifier&#40;标识符&#41;：用于标识元素，通常用于JavaScript操作)
-
-[//]: # (class:class&#40;类&#41;：用于为元素指定一个或多个CSS类名)
-
-[//]: # (style:style&#40;样式&#41;：直接为元素应用 CSS 样式)
-
-[//]: # (src:source&#40;源&#41;：用于指定图像、脚本等资源的URL/路径)
-
-[//]: # (href:hypertext reference&#40;超文本引用&#41;：用于指定超链接的目标URL)
-
-[//]: # (alt:alternative text&#40;替代文本&#41;：为图像提供替代描述（用于无障碍或加载失败时）)
-
-[//]: # (title:title&#40;标题&#41;：为元素提供额外的信息（如工具提示）（悬停时显示）)
-
-[//]: # (type:type&#40;类型&#41;：指定元素的类型（如input的类型）)
-
-[//]: # (name:name&#40;名称&#41;：为元素命名（常用于表单数据提交）)
-
-[//]: # (value:value&#40;值&#41;：指定元素的值（如input的输入值）)
-
-[//]: # (disabled:disabled&#40;禁用&#41;：禁用元素（使其不可用）)
-
-[//]: # (checked:checked&#40;选中&#41;：指定复选框或单选按钮默认选中)
-
-[//]: # (selected:selected&#40;选中&#41;：指定下拉选择框中的默认选项)
-
-[//]: # (placeholder:placeholder&#40;占位符&#41;：为输入框提供提示文本（在输入前显示）)
-
-[//]: # (method:method&#40;方法&#41;：指定表单提交的方式（如GET或POST）)
-
-[//]: # (其他：)
-
-[//]: # (<!DOCTYPE html>:Document Type（文档类型）：声明 HTML 文档的类型，确保浏览器正确解析页面)
-
-[//]: # (meta:Metadata（元数据）：提供关于 HTML 文档的元数据（如字符编码、页面描述等）)
-
-[//]: # (charset:Character Set（字符集）：指定 HTML 文档的字符编码（如UTF-8）)
-
-------------------------------------------
 参考资料：
 https://github.com/Eeyhan/onlinestudy
 https://github.com/NothinkingGao/django-eshop
@@ -290,3 +193,55 @@ https://github.com/pretendwang/Django-dianshang-proje
 https://blog.csdn.net/qq_41782425/article/details/88921322
 https://blog.csdn.net/geek_xiong/article/details/90324013
 https://www.cnblogs.com/zhangyh-blog/p/15239305.html
+------------------------------------------
+# html：HyperText Markup Language
+https://blog.csdn.net/mr_yuanshen/article/details/147668918
+1. 知识点
+html中字母大小写并不会影响代码效果
+<html>: 定义HTML文档的根元素
+<head>: 包含文档的元信息，如字符编码、页面标题、CSS 引用等
+<title>: 文档的标题
+<body>: 文档的主体内容:包含可见的页面内容（文本、图片、链接等）
+<div>:divsion(分割、分区)：作为块级容器，用于组织和布局页面内容
+<span>: (跨度)作为行内容器，用于在同一行内显示文本或其他元素
+<a>:archor(锚点)：用于创建超链接
+<img>:image(图像)：用于嵌入图像
+<ul>:unordered list(无序列表)：用于创建无序列表
+<ol>:ordered list(有序列表)：用于创建有序列表
+<li>:list item(列表项)：用于表示无序列表中的项目
+<p>: paragraph(段落)：用于表示文本段落
+<h1> - <h6>: Heading(标题)：用于表示不同级别的标题
+<br>:break(换行)：用于在文本中插入换行符
+<hr>:horizontal rule(水平线)：用于插入水平线
+<form>:form(表单)：用于创建html表单,用于用户输入
+<input>:input(输入)：用于创建表单输入字段
+<select>:select(选择)：用于创建下拉框
+<option>:option(选项)：用于定义下拉框中的选项
+<button>:button(按钮)：用于创建按钮
+<table>:table(表格)：用于创建表格
+<tr>:table row(表格行)：用于表示表格中的行
+<td>:table data(表格数据)：用于表示表格中的单元格
+<th>:table header(表格头)：用于表示表格中的表头单元格
+<textarea>:textarea(文本区域)：用于创建多行文本输入框
+属性缩写：
+id:identifier(标识符)：用于标识元素，通常用于JavaScript操作
+class:class(类)：用于为元素指定一个或多个CSS类名
+style:style(样式)：直接为元素应用 CSS 样式
+src:source(源)：用于指定图像、脚本等资源的URL/路径
+href:hypertext reference(超文本引用)：用于指定超链接的目标URL
+alt:alternative text(替代文本)：为图像提供替代描述（用于无障碍或加载失败时）
+title:title(标题)：为元素提供额外的信息（如工具提示）（悬停时显示）
+type:type(类型)：指定元素的类型（如input的类型）
+name:name(名称)：为元素命名（常用于表单数据提交）
+value:value(值)：指定元素的值（如input的输入值）
+disabled:disabled(禁用)：禁用元素（使其不可用）
+checked:checked(选中)：指定复选框或单选按钮默认选中
+selected:selected(选中)：指定下拉选择框中的默认选项
+placeholder:placeholder(占位符)：为输入框提供提示文本（在输入前显示）
+method:method(方法)：指定表单提交的方式（如GET或POST）
+其他：
+<!DOCTYPE html>:Document Type（文档类型）：声明 HTML 文档的类型，确保浏览器正确解析页面
+meta:Metadata（元数据）：提供关于 HTML 文档的元数据（如字符编码、页面描述等）
+charset:Character Set（字符集）：指定 HTML 文档的字符编码（如UTF-8）
+
+
