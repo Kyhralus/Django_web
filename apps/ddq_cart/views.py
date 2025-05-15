@@ -20,7 +20,7 @@ class CartAddView(View):
         # 接收数据
         sku_id = request.POST.get('sku_id')
         count = request.POST.get('count')
-        print("sku_id: ", sku_id, "count: ", count, "add")
+        # print("sku_id: ", sku_id, "count: ", count, "add")
         # 数据校验
         if not all([sku_id, count]):
             return JsonResponse({'res':1, 'errmsg': '数据不完整'})
@@ -94,7 +94,7 @@ class CartInfoView(LoginRequiredMixin, View):
             sku.amount = amount
             # 动态给sku对象增加一个属性count，保存购物车中对应商品的数量
             sku.count = int(count)    # 将字节数据转成int型
-            print(sku.count)
+            # print(sku.count)
             # 添加
             skus.append(sku)
 

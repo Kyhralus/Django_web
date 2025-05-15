@@ -111,7 +111,7 @@ class OrderCommitView(View):
         # 3 运费
         transit_price = 10
 
-        # todo: 向df_order_info表中插入记录
+        # 向ddq_order_info表中插入记录
         order = OrderInfo.objects.create(
             order_id=order_id, user=user,
             addr=addr, pay_method=pay_method,
@@ -129,17 +129,17 @@ class OrderCommitView(View):
             # 从redis数据库中获取用户购买商品的数量
             count = conn.hget(cart_key, sku_id)
 
-            # todo:向ddq_order_goods表中添加记录
+            # 向ddq_order_goods表中添加记录
             OrderGoods.objects.create(
                 order=order, sku=sku,
                 count=count, price=sku.price)
 
-            # todo: 更新商品的库存和销量
+            # 更新商品的库存和销量
             sku.stock -= int(count)
             sku.sales += int(count)
             sku.save()
 
-            # todo: 累加计算订单商品的总数量和总价格
+            # 累加计算订单商品的总数量和总价格
             amount = sku.price * int(count)
             total_count += int(count)
             total_price += amount

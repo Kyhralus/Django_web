@@ -5,61 +5,24 @@
     - django-haystack # 全文检索框架，用于搜索商品
     - django-redis # 缓存，用于存储历史浏览记录
     - django-tinymce # 富文本编辑，商品详情编写（不实用）
-    - django-bootstrap # 用于bootstrap框架
-- cffi-1.17.1 
-- cryptography-44.0.3 
-- pycparser-2.22 
-- Pillow 11.2.1 # 对导入图片操作
+    - django-bootstrap # 用于bootstrap框架，用于美化前端：尤其是主页的弹出显示
+- cryptography-44.0.3 # 用于密钥认证：加密算法库，提供哈希、对称加密（AES）、非对称加密（RSA）、数字证书等功能
+- Pillow 11.2.1 # 对导入图片操作。主要是生成缩略图、处理用户上传的图片、图片验证码等 Web 应用中的常见需求
 - itsdangerous-2.2.0 # 注册激活邮件token
 - pymysql-1.1.1 # 数据库
 - redis-6.0.0 # redis数据库，主要用于存储历史浏览记录
 - redis-py-5.4.0 # 用于redis数据库
-
-
-
-- django-redis-5.4.0
-- redis-6.0.0 # redis数据库，主要用于存储历史浏览记录
-
-amqp==5.3.1
-asgiref==3.8.1
-billiard==4.2.1
-cffi==1.17.1
-click==8.1.8
-click-didyoumean==0.3.1
-click-plugins==1.1.1
-click-repl==0.3.0
-colorama==0.4.6
-cryptography==44.0.3
-Django==5.2
-django-bootstrap==0.2.4
-django-haystack==3.3.0
-django-redis==5.4.0
-django-tinymce==4.1.0
-dnspython==2.7.0
-eventlet==0.39.1
-greenlet==3.2.1
-itsdangerous==2.2.0
-jieba==0.42.1
-kombu==5.5.3
-packaging==25.0
-pillow==11.2.1
-prompt_toolkit==3.0.51
-pyasn1==0.6.1
-pycparser==2.22
-pycryptodome==3.22.0
-PyMySQL==1.1.1
-python-dateutil==2.9.0.post0
-redis==6.0.0
-rsa==4.9.1
-six==1.17.0
-sqlparse==0.5.3
-tzdata==2025.2
-vine==5.1.0
-wcwidth==0.2.13
-Whoosh==2.7.4
-
+- dnspython==2.7.0  # DNS（域名系统）解析库，用于查询和操作 DNS 记录 
+- eventlet==0.39.1  # 基于协程的并发框架，实现高并发的网络应用，支持异步 I/O 
+- greenlet==3.2.1   # 轻量级协程实现，为 Python 提供用户空间的上下文切换机制。作为 gevent、eventlet 等库的底层协程支持，提升异步任务的切换效率
+- itsdangerous==2.2.0 # 安全序列化与签名工具，用于生成安全的令牌、验证数据完整性
+- jieba==0.42.1  # 中文分词库，支持精确分词、全模式分词和搜索引擎模式分词
+- packaging==25.0  # Python 包版本管理工具，提供版本解析、比较和验证功能
+- PyMySQL==1.1.1   # Python 操作 MySQL 数据库的驱动，实现 MySQL 协议的纯 Python 版本
+- python-dateutil==2.9.0.post0  # 期和时间处理库，扩展了 Python 标准库 datetime 的功能，支持时区转换、相对日期计算等
+- Whoosh==2.7.4   # 纯 Python 实现的全文搜索引擎库，支持索引构建、搜索查询和高亮显示
 ------------------------------------------
-参考资料：
+参考资料：\n
 https://github.com/Eeyhan/onlinestudy
 https://github.com/NothinkingGao/django-eshop
 https://github.com/Pad0y/Django2_dailyfresh
@@ -69,6 +32,27 @@ https://github.com/pretendwang/Django-dianshang-proje
 https://blog.csdn.net/qq_41782425/article/details/88921322
 https://blog.csdn.net/geek_xiong/article/details/90324013
 https://www.cnblogs.com/zhangyh-blog/p/15239305.html
+------------------------------------------
+# 实现功能：
+1. 商品展示 
+- [x] 首页展示：显示商品、首页幻灯片商品、促销活动。
+- [x] 详情页展示：显示商品的详细信息、评论信息、新品信息和同 SPU 的其他规格商品。
+- [x] 搜索页展示：支持中文模糊搜索。
+2. 用户管理
+- [x] 注册与登录：用户可以注册新账户，并使用注册的账户登录系统。
+- [x] 账户激活：用户注册后需要通过邮箱激活账户才能正常使用。
+- [x] 用户中心：包括用户信息展示、订单展示、地址管理、浏览记录和余额充值等功能。
+3. 购物车管理
+- [x] 添加商品：用户可以将商品添加到购物车中。
+- [x] 更新商品数量：用户可以更新购物车中商品的数量。
+- [x] 删除商品：用户可以删除购物车中的商品。
+- [x] 显示购物车：用户可以查看购物车中的商品信息和总价。
+4. 订单管理
+- [x] 提交订单：用户可以将购物车中的商品提交生成订单。
+- [x] 创建订单：系统根据用户提交的订单信息创建订单记录。
+- [x] 支付订单：用户可以使用余额支付订单。
+- [x] 订单评论：用户可以对已完成的订单进行评论。
+
 ------------------------------------------
 1. 激活虚拟环境
 ```bash

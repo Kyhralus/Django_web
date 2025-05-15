@@ -18,7 +18,7 @@ class GoodsType(BaseModel):
         return self.name
 
 class GoodsSKU(BaseModel):
-    """商品SKU模型类"""
+    """商品SKU模型类""" # GoodsSKU 通常用于存储商品的具体信息，例如价格、库存、规格等。通过 Django 的 ORM（对象关系映射），它会映射到数据库中的一张表，便于对商品数据进行增删改查操作。
     STATUS_CHOICES = (
         (0, '下线'),
         (1, '上线'),
@@ -81,6 +81,47 @@ class IndexGoodsBanner(BaseModel):
     def __str__(self):
         return self.sku.name
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# =============  未使用 ==============
 class IndexTypeGoodsBanner(BaseModel):
     """首页分类商品展示模型类"""
     DISPLAY_TYPE_CHOICES = (
@@ -101,6 +142,7 @@ class IndexTypeGoodsBanner(BaseModel):
     def __str__(self):  # django后台中文显示
         return self.name
 
+# =============  未使用 ==============
 class IndexPromotionBanner(BaseModel):
     """首页促销活动模型类"""
     name = models.CharField(max_length=20, verbose_name='活动名称')
