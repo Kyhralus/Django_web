@@ -42,7 +42,17 @@
 - [x] 创建订单：系统根据用户提交的订单信息创建订单记录。
 - [x] 支付订单：用户可以使用余额支付订单。
 - [x] 订单评论：用户可以对已完成的订单进行评论。
-
+------------------------------------------
+参考资料：
+https://github.com/Eeyhan/onlinestudy
+https://github.com/NothinkingGao/django-eshop
+https://github.com/Pad0y/Django2_dailyfresh
+https://github.com/geeeeeeeek/python_shop
+https://blog.csdn.net/qq_41782425/article/details/88790662
+https://github.com/pretendwang/Django-dianshang-proje
+https://blog.csdn.net/qq_41782425/article/details/88921322
+https://blog.csdn.net/geek_xiong/article/details/90324013
+https://www.cnblogs.com/zhangyh-blog/p/15239305.html
 ------------------------------------------
 1. 激活虚拟环境
 ```bash
@@ -182,17 +192,7 @@ hmlen <键名_id> # 查看键名_id的长度
 mtv-svc
 app创建过程
 django命令
-------------------------------------------
-参考资料：
-https://github.com/Eeyhan/onlinestudy
-https://github.com/NothinkingGao/django-eshop
-https://github.com/Pad0y/Django2_dailyfresh
-https://github.com/geeeeeeeek/python_shop
-https://blog.csdn.net/qq_41782425/article/details/88790662
-https://github.com/pretendwang/Django-dianshang-proje
-https://blog.csdn.net/qq_41782425/article/details/88921322
-https://blog.csdn.net/geek_xiong/article/details/90324013
-https://www.cnblogs.com/zhangyh-blog/p/15239305.html
+
 ------------------------------------------
 # html：HyperText Markup Language
 https://blog.csdn.net/mr_yuanshen/article/details/147668918
