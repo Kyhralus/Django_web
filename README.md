@@ -21,17 +21,7 @@
 - PyMySQL==1.1.1   # Python 操作 MySQL 数据库的驱动，实现 MySQL 协议的纯 Python 版本
 - python-dateutil==2.9.0.post0  # 期和时间处理库，扩展了 Python 标准库 datetime 的功能，支持时区转换、相对日期计算等
 - Whoosh==2.7.4   # 纯 Python 实现的全文搜索引擎库，支持索引构建、搜索查询和高亮显示
-------------------------------------------
-参考资料：\n
-https://github.com/Eeyhan/onlinestudy
-https://github.com/NothinkingGao/django-eshop
-https://github.com/Pad0y/Django2_dailyfresh
-https://github.com/geeeeeeeek/python_shop
-https://blog.csdn.net/qq_41782425/article/details/88790662
-https://github.com/pretendwang/Django-dianshang-proje
-https://blog.csdn.net/qq_41782425/article/details/88921322
-https://blog.csdn.net/geek_xiong/article/details/90324013
-https://www.cnblogs.com/zhangyh-blog/p/15239305.html
+
 ------------------------------------------
 # 实现功能：
 1. 商品展示 
@@ -242,3 +232,14 @@ method:method(方法)：指定表单提交的方式（如GET或POST）
 <!DOCTYPE html>:Document Type（文档类型）：声明 HTML 文档的类型，确保浏览器正确解析页面
 meta:Metadata（元数据）：提供关于 HTML 文档的元数据（如字符编码、页面描述等）
 charset:Character Set（字符集）：指定 HTML 文档的字符编码（如UTF-8）
+------------------------------------------
+参考资料：
+https://github.com/Eeyhan/onlinestudy
+https://github.com/NothinkingGao/django-eshop
+https://github.com/Pad0y/Django2_dailyfresh
+https://github.com/geeeeeeeek/python_shop
+https://blog.csdn.net/qq_41782425/article/details/88790662
+https://github.com/pretendwang/Django-dianshang-proje
+https://blog.csdn.net/qq_41782425/article/details/88921322
+https://blog.csdn.net/geek_xiong/article/details/90324013
+https://www.cnblogs.com/zhangyh-blog/p/15239305.html
