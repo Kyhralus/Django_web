@@ -232,6 +232,7 @@ method:method(方法)：指定表单提交的方式（如GET或POST）
 <!DOCTYPE html>:Document Type（文档类型）：声明 HTML 文档的类型，确保浏览器正确解析页面
 meta:Metadata（元数据）：提供关于 HTML 文档的元数据（如字符编码、页面描述等）
 charset:Character Set（字符集）：指定 HTML 文档的字符编码（如UTF-8）
+
 ------------------------------------------
 参考资料：
 https://github.com/Eeyhan/onlinestudy
