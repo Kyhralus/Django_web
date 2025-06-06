@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/b815524e-5ec0-485a-b83c-279b73bb4aeb)![image](https://github.com/user-attachments/assets/59b8d0de-ba91-49f1-a4cc-7f19689193ed)# 版本和依赖
+# 版本和依赖
 - python 3.11.7
 - django 5.2
     - django-extensions # 用于看urls映射关系等
