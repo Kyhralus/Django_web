@@ -44,23 +44,23 @@
 - [x] 订单评论：用户可以对已完成的订单进行评论。
 ------------------------------------------
 # 实现效果
-1. 主页
+1. 主页\n
 ![image](https://github.com/user-attachments/assets/471e6311-9a7b-4f1c-91ff-a5596e7d0203)
 ![image](https://github.com/user-attachments/assets/d9138f9a-f228-4c96-be04-957760dc55bb)
-2. 登录/注册页
+2. 登录/注册页\n
 ![image](https://github.com/user-attachments/assets/e090f362-3177-463d-8550-077f88397dcc)
 ![image](https://github.com/user-attachments/assets/53d16bb5-d141-4381-b20a-da03da297a34)
-3. 用户中心
+3. 用户中心\n
 ![image](https://github.com/user-attachments/assets/39f6df9e-3292-4300-bb6a-0036e8ae67e2)
-4. 订单管理/提交/支付
+4. 订单管理/提交/支付\n
 ![image](https://github.com/user-attachments/assets/ee9111a4-233e-495f-acf8-5035b2a3dfc4)
 ![image](https://github.com/user-attachments/assets/febb8162-7b40-47ef-8f6b-550f39d3c41b)
 ![image](https://github.com/user-attachments/assets/d4eb5093-cea6-45d6-b4e8-32b29188b3b0)
-6. 浏览历史
+6. 浏览历史\n
 ![image](https://github.com/user-attachments/assets/17e04a4b-2ad9-484e-9a28-c30d16f2d569)
-7. 购物车
+7. 购物车\n
 ![image](https://github.com/user-attachments/assets/6be19434-5897-4151-b9ad-64a924a6f27f)
-8. 商品详情/评论
+8. 商品详情/评论\n
 ![image](https://github.com/user-attachments/assets/5ccf6145-5ff3-4c46-a1eb-b08327577782)
 ![image](https://github.com/user-attachments/assets/7c672d7b-7250-466c-90ca-8d32c1f0f18e)
 ------------------------------------------
